@@ -1,0 +1,279 @@
+<div>
+  <app-signup-login></app-signup-login>
+    <section class="top-container search-panel header-banner">
+      <img
+        src="assets/img/event-space-venue-rental-resized.jpg"
+        alt="Event space and event venue rental Nigeria"
+        title="Rent the best event spaces and event venues in Nigeria"
+        style="
+          position: absolute;
+          top: 0px;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        "
+      />
+      <div class="container text-center">
+        <h1 class="main-tagline text-center">
+          Rent a venue space for your meeting,<br />event, function or
+          party in Nigeria
+        </h1>
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="filter-container filter-home-container text-left">
+          <div class="filter-option event-selection">            
+            <select class="select-event" formControlName="space">
+            <option value="" disabled selected>Select Event</option>
+              <option *ngFor="let val of spaceType" [ngValue]="val.value"><a>{{val.label}}</a></option>             
+            </select>
+          </div>
+          <div class="filter-option duration-selection">
+            <select class="select-event" formControlName="location">
+              <option value="" disabled selected>Location</option>
+                <option *ngFor="let val of location" [ngValue]="val.value"><a>{{val.label}}</a></option>             
+              </select>
+          </div>
+          <div class="filter-option capacity-selection">
+            <select class="select-event" formControlName="capacity">
+              <option value="" disabled selected>Capacity</option>
+                <option *ngFor="let val of capacity" [ngValue]="val.value"><a>{{val.label}}</a></option>             
+              </select>
+          </div>
+          <div class="filter-option search-btn-container">
+            <button type="submit" [disabled]="disabledSubmitButton" class="trigger-btn search-btn">Search</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section class="sub-section-container initial-fold">
+      <div class="container">
+        <div class="venue-signup-left">
+          <h2 class="text-center">
+            Find the perfect venue for your event
+          </h2>
+          <br />
+          <p class="text-center">
+            Whether you are organizing a company dinner, throwing a
+            private party, planning a networking event,<br />or conducting
+            a training workshop, Lifthub has the perfect venue for
+            your event.<br />Browse our platform of over 300 venues and
+            find the best event space for your needs.
+          </p>
+          <br />
+          <hr />
+          <br />
+          <h2 class="text-center">How it works</h2>
+          <br />
+          <ul class="row">
+            <li class="col-sm-4">
+              <img src="assets/img/search.png" style="height: 40px;" />
+              <h4>Search Venues</h4>
+              <br />Search from over 300 curated<br class="hidden-xs" />
+              event venues in Nigeria<br class="hidden-xs" />
+              with awesome spaces to rent
+            </li>
+            <li class="col-sm-4">
+              <img src="assets/img/shortlist.png" style="height: 40px;" />
+              <h4>Shortlist the Best</h4>
+              <br class="hidden-xs" />
+              Filter based on your specific<br class="hidden-xs" />
+              requirements to find the most<br class="hidden-xs" />
+              suitable spaces for your event
+            </li>
+            <li class="col-sm-4">
+              <img src="assets/img/quotes.png" style="height: 40px;" />
+              <h4>Book Space</h4>
+              <br class="hidden-xs" />
+              Book single or multiple<br class="hidden-xs" />
+              spaces and and make secure<br class="hidden-xs" />
+              payment for your event fuss-free
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="content-container home-container first-fold">
+      
+      <div class="container">
+        <h2 class="text-center">Find any type of space</h2>
+        <p class="text-center">
+          Fancy a cosy conference room for your meeting? How about a
+          rooftop bar for your product launch?<br />If you’re a tour group
+          or a company needing to dine together, we’ve got you covered.
+        </p>
+        <ul class="row">
+          <li class="col-sm-4">
+            <a
+              ><div class="space-type-option" style="min-height: 280px;">
+                <img
+                  src="assets/img/indoor-event-space-venue-rental-small.jpg"
+                  alt="Indoor event space and event venue rental Nigeria"
+                  title="Rent the best indoor event spaces and event venues in Nigeria"
+                  style="
+                    position: absolute;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  "
+                />
+                <ul>
+                  <li>Meeting Spaces</li>
+                </ul>
+              </div></a
+            >
+          </li>
+          <li class="col-sm-4">
+            <a
+              ><div class="space-type-option" style="min-height: 280px;">
+                <img
+                  src="assets/img/outdoor-event-space-venue-rental-small.jpg"
+                  alt="Outdoor event space and event venue rental Nigeria"
+                  title="Rent the best outdoor event spaces and event venues in Nigeria"
+                  style="
+                    position: absolute;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  "
+                />
+                <ul>
+                  <li>Event & Training Spaces</li>
+                </ul>
+              </div></a
+            >
+          </li>
+          <li class="col-sm-4">
+            <a
+              ><div class="space-type-option" style="min-height: 280px;">
+                <img
+                  src="assets/img/group-dinner-event-space-venue-rental-small.jpg"
+                  alt="Group dinner event space and event venue rental Nigeria"
+                  title="Rent the best group dinner event spaces and event venues in Nigeria"
+                  style="
+                    position: absolute;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  "
+                />
+                <ul>
+                  <li>Group Dinners</li>
+                </ul>
+              </div></a
+            >
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-sm-6">
+            <a href="/party-venues" class=""
+              ><div class="space-type-option" style="min-height: 280px;">
+                <img
+                  src="assets/img/private-party-venue-rental-small.jpg"
+                  alt="Private party venue rental Nigeria"
+                  title="Rent the best party spaces in Nigeria"
+                  style="
+                    position: absolute;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  "
+                />
+                <ul>
+                  <li>Private Party Spaces</li>
+                </ul>
+              </div></a
+            >
+          </li>
+          <li class="col-sm-6">
+            <a href="/corporate-event-venues" class=""
+              ><div class="space-type-option" style="min-height: 280px;">
+                <img
+                  src="assets/img/corporate-event-venue-rental-small.jpg"
+                  alt="Corporate event venue rental Nigeria"
+                  title="Rent the best corporate event spaces in Nigeria"
+                  style="
+                    position: absolute;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  "
+                />
+                <ul>
+                  <li>Corporate Event Spaces</li>
+                </ul>
+              </div></a
+            >
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-sm-4">
+            <a href="/function-rooms-halls" class=""
+              ><div class="space-type-option" style="min-height: 280px;">
+                <img
+                  src="assets/img/function-rooms-and-halls-rental-small.jpg"
+                  alt="Function rooms and halls rental Nigeria"
+                  title="Rent the best function rooms and halls in Nigeria"
+                  style="
+                    position: absolute;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  "
+                />
+                <ul>
+                  <li>Function Rooms</li>
+                </ul>
+              </div></a
+            >
+          </li>
+          <li class="col-sm-4">
+            <a href="/meeting-conference-rooms" class=""
+              ><div class="space-type-option" style="min-height: 280px;">
+                <img
+                  src="assets/img/meeting-and-conference-rooms-rental-small.jpg"
+                  alt="Meeting and conference rooms rental Nigeria"
+                  title="Rent the best meeting and conference rooms in Nigeria"
+                  style="
+                    position: absolute;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  "
+                />
+                <ul>
+                  <li>Meeting Rooms</li>
+                </ul>
+              </div></a
+            >
+          </li>
+          <li class="col-sm-4">
+            <a href="/training-seminar-class-rooms" class=""
+              ><div class="space-type-option" style="min-height: 280px;">
+                <img
+                  src="assets/img/training-seminar-class-rooms-rental-small.jpg"
+                  alt="Training seminar class rooms rental Nigeria"
+                  title="Rent the best training seminar class rooms in Nigeria"
+                  style="
+                    position: absolute;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  "
+                />
+                <ul>
+                  <li>Seminar Rooms</li>
+                </ul>
+              </div></a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>   
+  </div>
+  

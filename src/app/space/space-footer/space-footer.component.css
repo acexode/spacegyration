@@ -1,0 +1,23 @@
+footer.page-footer {
+    bottom: 0;
+    color: #fff !important;
+    padding: 60px 0;
+}
+.page-footer a{
+    color:#fff;
+}
+.stylish-color-dark {
+    background-color: #3e4551!important;
+}
+.font-small {
+    font-size: 1.2rem;
+}
+.font-weight-bold {
+    font-weight: 700!important;
+}
+.text-uppercase {
+    text-transform: uppercase!important;
+}
+.footer-logo{
+    width: 100px;
+}

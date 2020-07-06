@@ -1,0 +1,114 @@
+<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content p-4">
+        <img class="logo mx-3 my-3" src="https://lifthub.org/images/160290cdb0652b0525e8191290986af1.png"/>
+          <br>
+          <div class="bs-example bs-example-tabs">
+              <ul id="myTab" class="nav nav-tabs">
+                <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                <li class=""><a href="#signup" data-toggle="tab">Register</a></li>               
+              </ul>
+          </div>
+        <div class="modal-body ">
+          <div id="myTabContent" class="tab-content">
+         
+          <div class="tab-pane fade active in" id="signin">
+            <form>
+
+                <div class="md-form mb-5">
+                  <input type="text" id="Form-username" placeholder="Username" class="form-control" mdbInput mdbValidate
+                         [formControl]="loginUsername">
+                  <!-- <label for="Form-username">Your Username</label> -->
+                  <mdb-error
+                    *ngIf="loginUsername.invalid && (loginUsername.dirty || loginUsername.touched)">
+                    Input invalid
+                  </mdb-error>
+                  <mdb-success
+                    *ngIf="loginUsername.valid && (loginUsername.dirty || loginUsername.touched)">Input
+                    valid
+                  </mdb-success>
+                </div>
+        
+                <div class="md-form mb-5">
+                  <input type="password" id="Form-pass1" placeholder="Password" class="form-control" mdbInput mdbValidate
+                         [formControl]="loginUserPassword">
+                  <!-- <label for="Form-pass1">Your password</label> -->
+                  <mdb-error
+                    *ngIf="loginUserPassword.invalid && (loginUserPassword.dirty || loginUserPassword.touched)">
+                    Input invalid
+                  </mdb-error>
+                  <mdb-success
+                    *ngIf="loginUserPassword.valid && (loginUserPassword.dirty || loginUserPassword.touched)">
+                    Input valid
+                  </mdb-success>
+                  <p class="font-small blue-text d-flex float-right justify-content-end">Forgot
+                    <a (click)="forget()" class="blue-text ml-1"> Password?</a>
+                  </p>
+                </div>
+        
+                <div class="md-form mt-2 text-center">
+                  <button (click)="login()" type="submit" mdbBtn color="warning" block="true" [disabled]="disabledSubmitButton" rounded="true" class="z-depth-1a waves-light btn btn-warning btn-rounded btn-block"
+                          mdbWavesEffect>Sign In
+                  </button>
+                </div>
+              </form>
+          </div>
+          <div class="tab-pane fade" id="signup">
+            <form>
+                <div class="md-form mb-5">
+                    <input type="email" id="Form-email1" placeholder="Email" class="form-control" mdbInput mdbValidate
+                    [formControl]="signupEmail">
+                    <!-- <label for="Form-email1">Your email</label> -->
+                    <mdb-error
+                    *ngIf="signupEmail.invalid && (signupEmail.dirty || signupEmail.touched)">
+                    Input invalid
+                  </mdb-error>
+                  <mdb-success
+                    *ngIf="signupEmail.valid && (signupEmail.dirty || signupEmail.touched)">Input
+                    valid
+                  </mdb-success>
+                </div>
+                <div class="md-form mb-5">
+                  <input type="text" id="Form-username" placeholder="Username" class="form-control" mdbInput mdbValidate
+                         [formControl]="signupUsername">
+                  <!-- <label for="Form-username">Your Username</label> -->
+                  <mdb-error
+                    *ngIf="signupUsername.invalid && (signupUsername.dirty || signupUsername.touched)">
+                    Input invalid
+                  </mdb-error>
+                  <mdb-success
+                    *ngIf="signupUsername.valid && (signupUsername.dirty || signupUsername.touched)">Input
+                    valid
+                  </mdb-success>
+                </div>
+            
+                <div class="md-form mb-5">
+                  <input type="password" id="Form-pass1" placeholder="Password" class="form-control" mdbInput mdbValidate
+                         [formControl]="signupPassword">
+                  <!-- <label for="Form-pass1">Your password</label> -->
+                  <mdb-error
+                    *ngIf="signupPassword.invalid && (signupPassword.dirty || signupPassword.touched)">
+                    Input invalid
+                  </mdb-error>
+                  <mdb-success
+                    *ngIf="signupPassword.valid && (signupPassword.dirty || signupPassword.touched)">
+                    Input valid
+                  </mdb-success>          
+                </div>
+            
+                <div class="text-center mt-2">
+                  <button (click)="signup()" type="submit" mdbBtn color="warning" [disabled]="disabledSubmitButton" block="true" rounded="true" class="z-depth-1a waves-light btn btn-warning btn-rounded btn-block"
+                          mdbWavesEffect>Sign Up
+                  </button>
+                </div>
+              </form>
+        </div>
+      </div>
+        </div>
+        <div class="modal-footer p-0">        
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
