@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
 import * as moment from 'moment-timezone';
-
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 
 @Injectable({
@@ -9,88 +9,107 @@ import * as moment from 'moment-timezone';
 })
 export class DispatcherService {
   httpOptions
+  base_url = 'http://localhost:4300'
+  helper = new JwtHelperService();
   constructor(private http: HttpClient) {
     this.httpOptions = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('token') })
     };
    }
+   getOccupants() {    
+    return this.http.get(`${this.base_url}/api/occupants`, this.httpOptions);
+  }
    check() {    
-    return this.http.get(`/api/check`, this.httpOptions);
+    return this.http.get(`${this.base_url}/api/check`, this.httpOptions);
   }
   users() {
-    return this.http.get('/api/users');
+    return this.http.get(``);
   }
   // signup new user
   signup(user) {
-    return this.http.post('/api/signup', user);
+    return this.http.post(`${this.base_url}/api/signup`, user);
   }
 
   // login user
   login(user) {
-    return this.http.post('/api/login', user);
+    return this.http.post(`${this.base_url}/api/login`, user);
   }
 
   // forgot passsword
   forgot(user) {
-    return this.http.post('/api/forgot_password', user);
+    return this.http.post(`${this.base_url}/api/forgot_password`, user);
   }
-  
+  updateUser(user){
+    return this.http.put(`${this.base_url}/api/update-profile`,user, this.httpOptions)
+  }
   // reset passsword
   resetPassword(user) {
-    return this.http.post('/api/reset_password', user);
+    return this.http.post(`${this.base_url}/api/reset_password`, user);
   }
 
   // subscribe to newsletter
   subscribe(user) {
-    return this.http.post('/api/subscribe', user);
+    return this.http.post(`${this.base_url}/api/subscribe`, user);
   }
 
   // search for space based on location and spacetype
   search(type, location) {
-    return this.http.get(`/api/space/search?space=${type}&location=${location}`);
+    return this.http.get(`${this.base_url}/api/space/search?space=${type}&location=${location}`);
   }
   // add space
   addSpace(space) {
     
     console.log(this.httpOptions)
-    return this.http.post(`/api/space/`, space, this.httpOptions);
+    return this.http.post(`${this.base_url}/api/space/`, space, this.httpOptions);
   }
   uploadImage(formData) {    
     console.log(this.httpOptions)
-    return this.http.post(`/api/upload`, formData);
+    return this.http.post(`${this.base_url}/api/upload`, formData);
   }
   transaction(details) {    
     console.log(this.httpOptions)
-    return this.http.post(`/api/transactions`, details);
+    return this.http.post(`${this.base_url}/api/transactions`, details, this.httpOptions);
   }
   // search based on spacetype
   spaceType(space) {
-    return this.http.get(`/api/space/type?spaceType=${space}`);
+    return this.http.get(`${this.base_url}/api/space/type?spaceType=${space}`);
   }
 
   // get all space in a location
   getLocationData(lat, lng) {
-    return this.http.get(`/api/space/locate?lat=${lat}&lng=${lng}`);
+    return this.http.get(`${this.base_url}/api/space/locate?lat=${lat}&lng=${lng}`);
   }
 
   // get single space
+  getOwnerSpaces() {
+    return this.http.get(`${this.base_url}/api/spaces`, this.httpOptions);
+  }
+  // get single space
   getSingle(id) {
-    return this.http.get(`/api/space/${id}`);
+    return this.http.get(`${this.base_url}/api/space/${id}`);
   }
   // get spaces owned by current admin
   ownerSpaces() {
-    return this.http.get(`/api/ownerSpaces`, this.httpOptions);
+    return this.http.get(`${this.base_url}/api/ownerSpaces`, this.httpOptions);
+  }
+  // get spaces owned by current admin and booked
+  bookedSPaces() {
+    return this.http.get(`${this.base_url}/api/booked-spaces`, this.httpOptions);
   }
   payments() {
-    return this.http.get(`/api/payments`, this.httpOptions);
+    return this.http.get(`${this.base_url}/api/payments`, this.httpOptions);
+  }
+  // get single space
+  getUserProfile() {
+    return this.http.get(`${this.base_url}/api/user-profile`, this.httpOptions);
   }
   // get single space
   getUserData() {
-    return this.http.get(`/api/user`, this.httpOptions);
+    return this.http.get(`${this.base_url}/api/user`, this.httpOptions);
   }
    // all bookings
    Bookings(){
-    return this.http.get(`/api/bookings`, this.httpOptions);
+    return this.http.get(`${this.base_url}/api/bookings`, this.httpOptions);
   }
   //delete booking
   deleteBooking(spaceId,bookingId){
@@ -101,7 +120,7 @@ export class DispatcherService {
         bookingId
       },
     };
-    return this.http.delete('/api/space/' + spaceId);
+    return this.http.delete(`${this.base_url}/api/space/` + spaceId);
   }
   extendBooking(spaceId, bookingId) {
     const msg = {
@@ -110,18 +129,20 @@ export class DispatcherService {
         headers: this.httpOptions.headers,
         msg : 'Requesting extension for booking'
       };
-    return this.http.post('/api/email' + spaceId, msg );
+    return this.http.post(`${this.base_url}/api/email` + spaceId, msg );
   }
 
   // check if a space is available
   checkAvailability(msg) {
-    return this.http.post('/api/email', msg);
+    return this.http.post(`${this.base_url}/api/email`, msg);
   }
 
   // check if user is logged in
   isLoggedIn() {
     const token = localStorage.getItem('token');
-    if (token) {
+    let isExpired = this.helper.isTokenExpired(token);
+    if (isExpired) {
+      console.log('expired')
       return true;
     } else {
       return false;
@@ -147,7 +168,9 @@ bookSpace(data, prevBooking) {
   // Convert booking Date objects into a number value
   const newBookingStart = bookStart.getTime();
   const newBookingEnd = bookEnd.getTime();
-
+  console.log(newBookingStart);
+  console.log(newBookingEnd);
+  
   // Check whether the new booking times overlap with any of the existing bookings
   let bookingClash = false;
   if (prevBooking.length > 0 ) {
@@ -168,16 +191,18 @@ bookSpace(data, prevBooking) {
   }
   // Ensure the new booking is valid (i.e. the start time is before the end time, and the booking cois for a future time)
   const validDate = newBookingStart < newBookingEnd && newBookingStart > new Date().getTime();
+  console.log(validDate)
+  console.log(bookingClash)
   // If a recurring booking as been selected, ensure the end date is after the start date
   const dateString = data.recurringData[0];
 
   const validRecurring = (data.recurringData.length > 0) ?
     this.dateUTC(dateString).getTime() > newBookingEnd : true;
-
+  console.log(validRecurring)
   // Save the booking to the database and return the booking if there are no clashes and the new booking time is not in the past
   if (!bookingClash && validDate && validRecurring ) {
     console.log('http');
-    return this.http.put(`api/book/${data.spaceId}`, {
+    return this.http.put(`${this.base_url}/api/book/${data.spaceId}`, {
       bookingStart: bookStart,
       bookingEnd: bookEnd,
       spaceId: data.spaceId,

@@ -1,3 +1,4 @@
+import { DispatcherService } from 'src/app/dispatcher.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
@@ -6,10 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./space-nav.component.css']
 })
 export class SpaceNavComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  isLoggedIn = false
+  constructor(private router: Router, private dispatcher: DispatcherService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !this.dispatcher.isLoggedIn()
+    console.log(this.isLoggedIn)
   }
   goto(e){   
     console.log(e)

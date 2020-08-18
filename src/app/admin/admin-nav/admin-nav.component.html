@@ -1,0 +1,91 @@
+
+<header id="page-topbar">
+    <div class="navbar-header">
+        <div class="d-flex">                     
+            <div class="navbar-brand-box">
+                <a  class="logo ">                               
+                    <h3 class="pt-4 text-light">SpaceGyration</h3>
+                </a>                           
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
+                <i class="las la-bars"></i>
+            </button> 
+        </div>
+
+        <div class="d-flex">
+
+            <div class="dropdown d-inline-block d-lg-none ml-2">
+                <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="ri-search-line"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                    aria-labelledby="page-header-search-dropdown">
+        
+                    <form class="p-3">
+                        <div class="form-group m-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search ...">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit"><i class="ri-search-line"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="dropdown d-none d-lg-inline-block ml-1">
+                <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                    <i class="las la-expand"></i>
+                </button>
+            </div>
+
+            
+
+            
+
+        </div>
+    </div>
+</header>
+
+<!-- ========== Left Sidebar Start ========== -->
+<div class="vertical-menu" >
+
+    <div data-simplebar class="h-100">
+
+        <!--- Sidemenu -->
+        <ul class="sidebar-menu">
+            <li class="menu-title" ><a [routerLink]="['/admin/admin-dashboard']" >Dashboard</a></li>
+            <li class="treeview">
+              <a href="javascript: void(0);">
+                  <i class="las la-hotel pr-2"></i> <span>Spaces</span> <i class="fa fa-angle-right pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                    <li><a [routerLink]="['/admin/booked-spaces']" >Booked Spaces</a></li>           
+                    <li><a [routerLink]="['/admin/available-spaces']" >Available Spaces</a></li>           
+                    <li><a [routerLink]="['/admin/occupants']" >Occupants</a></li>           
+                    <li><a [routerLink]="['/admin/booked-history']" >Booked History</a></li>
+                    <li><a [routerLink]="['/admin/add-space']" >Add Spaces</a></li>           
+                   
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="javascript: void(0);">
+                <i class="las la-user pr-2"></i>
+                        <span>User</span>
+                        <i class="fa fa-angle-right pull-right"></i>
+                
+              </a>
+              <ul class="treeview-menu" style="display: none;">
+                <li><a [routerLink]="['/admin/account-setting']">Account Setting</a></li>
+                <li><a [routerLink]="['/admin/change-password']"> Change Password</a></li>
+               
+              </ul>
+            </li>
+         </ul>
+       
+        <!-- Sidebar -->
+    </div>
+</div>

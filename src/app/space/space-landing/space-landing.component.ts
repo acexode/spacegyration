@@ -64,12 +64,20 @@ export class SpaceLandingComponent implements OnInit {
     }
   }
   @HostListener('input') oninput() {
-    if (this.searchForm.valid) {
-      this.disabledSubmitButton = false;
-      console.log('valid')
-    }else{
-      console.log('invalid')
-    }
+    console.log(this.searchForm)
+    
+    console.log(this.searchForm.value)
+    this.searchForm.valueChanges.subscribe(obj => {
+      console.log(obj)
+      const {space, location, capacity} = obj;
+      if (space.length) {
+        this.disabledSubmitButton = false;
+        console.log('valid')
+      }else{
+        console.log('invalid')
+      }
+    })
+    
   }
   showPosition(position) {
     const lat = position.coords.latitude;
@@ -80,8 +88,8 @@ export class SpaceLandingComponent implements OnInit {
    });
   }
   goto(e){   
-    console.log(e)
-    const url = `space/events/${e}`;
+    // alert(e)
+    const url = `space/${e}`;
     this.router.navigate([url]);
 }
   onSubmit() {

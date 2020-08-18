@@ -25,9 +25,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/spacing.css"
+              "src/spacing.css",
+              "node_modules/flatpickr/dist/flatpickr.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/app.js"
+            ]
           },
           "configurations": {
             "production": {

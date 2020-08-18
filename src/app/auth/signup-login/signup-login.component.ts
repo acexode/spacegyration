@@ -66,11 +66,8 @@ export class SignupLoginComponent implements OnInit {
       this.dispatch.login(this.signupUser).subscribe(token =>{
         this.data = token['token']
         localStorage.setItem('token', this.data);
-        let timeout = 1000 * 60 * 60  * 6
-        setTimeout(()=>{
-          localStorage.removeItem('token')
-        },timeout)        
-        this.router.navigate(['space']);
+        document.getElementById("closeModal").click()      
+        // this.router.navigate(['space']);
       });
     }, err => {
       this.errMsg = err.error.message;
@@ -87,16 +84,16 @@ export class SignupLoginComponent implements OnInit {
     this.dispatch.login(this.loginUser).subscribe(res => {
       console.log(res)
       this.data = res['token']
-      localStorage.setItem('token', this.data);      
-      let timeout = 1000 * 60 * 60  * 6
-      setTimeout(()=>{
-        localStorage.removeItem('token')
-      },timeout)
-      
-      this.router.navigate(['space'])
+      localStorage.setItem('token', this.data); 
+      document.getElementById("closeModal").click()
+      // this.router.navigate(['space'])
     },err => {
       console.log(err)
+
       this.errMsg = err.error.message;
+      setTimeout(()=>{
+        
+      },3500)
     });
   }
   forget(){

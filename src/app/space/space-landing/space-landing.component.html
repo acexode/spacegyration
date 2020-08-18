@@ -1,5 +1,5 @@
 <div>
-  <app-signup-login></app-signup-login>
+  
     <section class="top-container search-panel header-banner">
       <img
         src="assets/img/event-space-venue-rental-resized.jpg"
@@ -21,7 +21,7 @@
         <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="filter-container filter-home-container text-left">
           <div class="filter-option event-selection">            
             <select class="select-event" formControlName="space">
-            <option value="" disabled selected>Select Event</option>
+            <option value="" disabled selected>Select Event *</option>
               <option *ngFor="let val of spaceType" [ngValue]="val.value"><a>{{val.label}}</a></option>             
             </select>
           </div>
@@ -102,6 +102,7 @@
         <ul class="row">
           <li class="col-sm-4">
             <a
+            (click)="goto('events/private meeting')"
               ><div class="space-type-option" style="min-height: 280px;">
                 <img
                   src="assets/img/indoor-event-space-venue-rental-small.jpg"
@@ -116,13 +117,14 @@
                   "
                 />
                 <ul>
-                  <li>Meeting Spaces</li>
+                  <li>Private Meeting Spaces</li>
                 </ul>
               </div></a
             >
           </li>
           <li class="col-sm-4">
             <a
+            (click)="goto('events/trainings')"
               ><div class="space-type-option" style="min-height: 280px;">
                 <img
                   src="assets/img/outdoor-event-space-venue-rental-small.jpg"
@@ -144,6 +146,7 @@
           </li>
           <li class="col-sm-4">
             <a
+            (click)="goto('events/group meeting')"
               ><div class="space-type-option" style="min-height: 280px;">
                 <img
                   src="assets/img/group-dinner-event-space-venue-rental-small.jpg"
@@ -166,7 +169,7 @@
         </ul>
         <ul class="row">
           <li class="col-sm-6">
-            <a href="/party-venues" class=""
+            <a (click)="goto('events/picnics')" class=""
               ><div class="space-type-option" style="min-height: 280px;">
                 <img
                   src="assets/img/private-party-venue-rental-small.jpg"
@@ -187,7 +190,7 @@
             >
           </li>
           <li class="col-sm-6">
-            <a href="/corporate-event-venues" class=""
+            <a (click)="goto('events/conference')" class=""
               ><div class="space-type-option" style="min-height: 280px;">
                 <img
                   src="assets/img/corporate-event-venue-rental-small.jpg"
@@ -210,7 +213,7 @@
         </ul>
         <ul class="row">
           <li class="col-sm-4">
-            <a href="/function-rooms-halls" class=""
+            <a (click)="goto('events/reception')" class=""
               ><div class="space-type-option" style="min-height: 280px;">
                 <img
                   src="assets/img/function-rooms-and-halls-rental-small.jpg"
@@ -231,7 +234,7 @@
             >
           </li>
           <li class="col-sm-4">
-            <a href="/meeting-conference-rooms" class=""
+            <a (click)="goto('events/meetups')" class=""
               ><div class="space-type-option" style="min-height: 280px;">
                 <img
                   src="assets/img/meeting-and-conference-rooms-rental-small.jpg"
@@ -252,7 +255,7 @@
             >
           </li>
           <li class="col-sm-4">
-            <a href="/training-seminar-class-rooms" class=""
+            <a (click)="goto('events/seminars')" class=""
               ><div class="space-type-option" style="min-height: 280px;">
                 <img
                   src="assets/img/training-seminar-class-rooms-rental-small.jpg"

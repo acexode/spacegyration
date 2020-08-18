@@ -1,0 +1,14 @@
+.avater-container{
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #E8F5FF;
+}
+
+.view-btn{
+    margin-top: .7em;
+    border-radius: 20px;
+    font-size: medium;
+}

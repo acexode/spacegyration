@@ -1,0 +1,55 @@
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-center">
+                    <h4 class="mt-5 text-center">Booked Spaces</h4>
+
+                    
+
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row px-3">
+            <div class="col-md-12 px-5">
+                <div *ngFor="let space of spaces" class="row card card-list ">
+                    <div class="col-md-11  card-list-left ">
+                        <div class="row">
+                            <div class="col-1 p-0">
+                                <img style="width: 70px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS-ohtFViD0xjYloizfv_z3dwh8EEP2eDmqSg&usqp=CAU" alt="">
+
+                            </div>
+                            <div class="col-4">
+                                <p class="pt-4 pl-3 p-detail">{{space.details.name}}</p>
+                            </div>
+                           
+                            <div class="col-2">
+                                <p class=" pt-4 p-detail">{{calcDuration(space.bookings[0].bookingStart,space.bookings[0].bookingEnd)}}</p>
+                                
+                            </div>
+                            <div class="col-2">
+                                <h2 class=" pt-4 ">N{{space.details.price}}</h2>
+
+                            </div>
+                            <div class="col-3">
+                                <p class=" pt-4 p-detail">{{toDateString(space.bookings[0].bookingStart)}} - {{toDateString(space.bookings[0].bookingEnd)}}</p>
+
+                            </div>
+                        </div>
+                    </div>                                                                            
+                    <a class="col-md-1  pt-2 text-center h3 text-light">View</a>
+                </div>     
+            </div>
+           
+
+           
+        </div>
+        
+        <!-- end row -->
+
+    </div> <!-- container-fluid -->
+</div>

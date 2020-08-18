@@ -1,269 +1,272 @@
-<div>
-    
-    <section class="content-container">
-      <div class="container">
-        <div class="item-list mt-5">
-          <div class="row row-offcanvas row-offcanvas-right">
-            <div class="col-sm-3 sidebar-offcanvas">
-              <div class="left-filter-container">
-                <h6>
-                  <i aria-hidden="true" class="fa fa-location-arrow"></i>
-                  Location
-                </h6>
-                <div class="filter-list">
-                  <ul class="row">  
-                    <li class="col-sm-12">
-                        <label class="checkbox"
-                          ><input type="checkbox" value="2" />All
-                        </label>
-                      </li>                 
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="5" />Abuja
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="4" />Lagos
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="3" />Portharcourt
-                      </label>
-                    </li>                   
-                  </ul>
-                </div>
-              </div>
-              <div class="left-filter-container">
-                <h6>
-                  <i aria-hidden="true" class="fa fa-wifi"></i> Amenities
-                </h6>
-                <div class="filter-list">
-                  <ul class="row">
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input
-                          type="checkbox"
-                          value="3"
-                        />Air-conditioning
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="6" />Projector /
-                        Screen
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="5" />Sound System
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="4" />Microphone
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="9" />Whiteboard
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="7" />Stage
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="2" />Wi-fi
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="8" />Bar
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="left-filter-container">
-                <h6>
-                  <i aria-hidden="true" class="fa fa-cutlery"></i> Food
-                  &amp; Beverage
-                </h6>
-                <div class="filter-list">
-                  <ul class="row">
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="8" />Breakfast
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="4" />Lunch
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="5" />Dinner
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="3" />Alcohol
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="1" />Halal
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="2" />Vegetarian
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="6" />Snacks &amp;
-                        Drinks
-                      </label>
-                    </li>
-                    <li class="col-sm-12">
-                      <label class="checkbox"
-                        ><input type="checkbox" value="7" />External
-                        Catering
-                      </label>
-                    </li>
-                  </ul>
-                </div>
+<div>    
+  <section id="content-container" class="content-container">
+    <div class="container">
+      <div class="item-list mt-5">
+        <div class="row row-offcanvas row-offcanvas-right">
+          <div class="col-sm-3 sidebar-offcanvas">
+            <div class="left-filter-container">
+              <h6>
+                <i aria-hidden="true" class="fa fa-location-arrow"></i>
+                Location
+              </h6>
+              <div class="filter-list">
+                <ul class="row">  
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input type="checkbox" [(ngModel)]="locationFilter.abuja"   (ngModelChange)="setLocation('Abuja')" value="Abuja" />Abuja
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input type="checkbox"   [(ngModel)]="locationFilter.lagos"   (ngModelChange)="setLocation('Lagos')" value="Lagos" />Lagos
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input type="checkbox" [(ngModel)]="locationFilter.portharcourt"   (ngModelChange)="setLocation('Portharcourt')" value="Portharcourt" />Portharcourt
+                    </label>
+                  </li>                   
+                </ul>
               </div>
             </div>
-            <div class="col-sm-9">
-              <div class="row search-result-header">
-                <div class="col-sm-6">
-                  <input
-                    type="text"
-                    placeholder="Search by venue name"
-                    class="search-venue"
-                  />
-                </div>
-                <div class="col-sm-6 sorter text-right">
-                  <a
-                    href="javascript:void(0);"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="true"
-                    class="dropdown-toggle trigger-btn sort-by-trigger"
-                  >
-                    SORT BY<i
-                      aria-hidden="true"
-                      class="fa fa-angle-down"
-                    ></i
-                  ></a>
-                  <ul class="dropdown-menu">
-                    <li style="margin-bottom: 0px;">
-                      <a>Capacity (low-high)</a>
-                    </li>
-                    <li style="margin-bottom: 0px;">
-                      <a>Capacity (high-low)</a>
-                    </li>
-                  </ul>
-                </div>
+            <div class="left-filter-container">
+              <h6>
+                <i aria-hidden="true" class="fa fa-wifi"></i> Amenities
+              </h6>
+              <div class="filter-list">
+                <ul class="row">                   
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input
+                        type="checkbox"
+                        [(ngModel)]="amenitiesFilter.AC"   (ngModelChange)="setAmenities('AC')"                         
+                      />Air-conditioning
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input 
+                      [(ngModel)]="amenitiesFilter.projector"   (ngModelChange)="setAmenities('projector')"
+                      type="checkbox" />Projector /
+                      Screen
+                    </label>
+                  </li>                    
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input
+                        [(ngModel)]="amenitiesFilter.tv"   (ngModelChange)="setAmenities('tv')"
+                       type="checkbox" />TV
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input
+                      [(ngModel)]="amenitiesFilter.whiteBoard"   (ngModelChange)="setAmenities('whiteBoard')"
+                       type="checkbox" 
+                       />Whiteboard
+                    </label>
+                  </li>                   
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input
+                      [(ngModel)]="amenitiesFilter.wifi"   (ngModelChange)="setAmenities('wifi')"
+                      type="checkbox" value="2" />Wi-fi
+                    </label>
+                  </li>                    
+                </ul>
               </div>
-              <ul class="row">
-                <div *ngFor="let space of spaces;let i =index" class="col-lg-4 col-md-6 mb-3">
-                    <div class="room-grid-item">
-                      <figure class="gradient-overlay-hover link-icon">
-                        <a (click)="gotoBook(space._id)">
-                          <img
-                          src="{{space.details.img[0]}}"
-                            class="img-fluid rooms-img"
-                            alt="Image"
-                          />
-                        </a>
-                        <div class="room-services">
-                          <i
-                          *ngIf="space.assets.breakfast"
-                            class="fa fa-coffee"
-                            aria-hidden="true"
-                            data-toggle="popover"
-                            data-placement="right"
-                            data-trigger="hover"
-                            data-content="Breakfast Included"
-                            data-original-title="Breakfast"
-                          ></i>
-                          <i
-                          *ngIf="space.assets.wifi"
-                            class="fa fa-wifi"
-                            aria-hidden="true"
-                            data-toggle="popover"
-                            data-placement="right"
-                            data-trigger="hover"
-                            data-content="Free WiFi"
-                            data-original-title="WiFi"
-                          ></i>
-                          <i
-                          *ngIf="space.assets.tv"
-                            class="fa fa-tv"
-                            data-toggle="popover"
-                            data-placement="right"
-                            data-trigger="hover"
-                            data-content="Plasma TV with cable channels"
-                            data-original-title="TV"
-                          ></i>
-                          <i
-                          *ngIf="space.assets.whiteboard"
-                            class="fa fa-chalkboard"
-                            data-toggle="popover"
-                            data-placement="right"
-                            data-trigger="hover"
-                            data-content="Presentation Whiteboard"
-                            data-original-title="Whiteboard"
-                          ></i>
-                          <i
-                          *ngIf="space.assets.projector"
-                            class="fa fa-hdd"
-                            data-toggle="popover"
-                            data-placement="right"
-                            data-trigger="hover"
-                            data-content="Presentation projector"
-                            data-original-title="Projector"
-                          ></i>
-                        </div>
-                        <div class="room-price">€{{space.details.price}} / night</div>
-                      </figure>
-                      <div class="room-info">
-                        <h2 class="item-room-title">
-                          <a (click)="gotoBook(space._id)">{{space.details.name}} </a>
-                        </h2>
-                        <p class="item-venue-title">{{space.details.description}}</p>
-                      </div>
-                    </div>
-                  </div>                
-              </ul>
-              <hr />
-              <section class="pagination-container">
-                <nav>
-                  <ul class="pagination pull-left">
-                    <li class="active"><a>1</a></li>
-                    <li class=""><a>2</a></li>
-                    <li class=""><a>3</a></li>
-                    <li class=""><a>4</a></li>
-                  </ul>
-                </nav>
-                <br />
-                <span style="float: right; font-size: 14px;"
-                  >Displaying 1 - 33 of 33 Spaces</span
+            </div>
+            <div class="left-filter-container">
+              <h6>
+                <i aria-hidden="true" class="fa fa-cutlery"></i> Food
+                &amp; Beverage
+              </h6>
+              <div class="filter-list">
+                <ul class="row">
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input
+                       type="checkbox" 
+                       [(ngModel)]="amenitiesFilter.breakfast"   (ngModelChange)="setAmenities('breakfast')"
+                        />Breakfast
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox">
+                      <input 
+                      type="checkbox" 
+                      [(ngModel)]="amenitiesFilter.lunch"   (ngModelChange)="setAmenities('lunch')"
+                      />Lunch
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox">
+                      <input 
+                      type="checkbox" 
+                      [(ngModel)]="amenitiesFilter.dinner"   (ngModelChange)="setAmenities('dinner')"
+                      />Dinner
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input 
+                      type="checkbox" 
+                      [(ngModel)]="amenitiesFilter.alcohol"   (ngModelChange)="setAmenities('alcohol')"
+                      />Alcohol
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input 
+                      type="checkbox" 
+                      [(ngModel)]="amenitiesFilter.halal"   (ngModelChange)="setAmenities('halal')"
+                      />Halal
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input type="checkbox" 
+                      [(ngModel)]="amenitiesFilter.vegeterian"   (ngModelChange)="setAmenities('vegeterian')"
+                      />Vegetarian
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label class="checkbox"
+                      ><input 
+                      type="checkbox" 
+                      [(ngModel)]="amenitiesFilter.snacks"   (ngModelChange)="setAmenities('snacks')"
+                      />Snacks &amp;
+                      Drinks
+                    </label>
+                  </li>                   
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-9">
+            <div class="row search-result-header">
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  [(ngModel)]="searchText"
+                  placeholder="Search by venue name"
+                  class="search-venue"
+                />
+              </div>
+              <div class="col-sm-6 sorter text-right">
+                <a
+                  href="javascript:void(0);"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                  class="dropdown-toggle trigger-btn sort-by-trigger"
                 >
-              </section>
+                  SORT BY<i
+                    aria-hidden="true"
+                    class="fa fa-angle-down"
+                  ></i
+                ></a>
+                <ul class="dropdown-menu">
+                  <li style="margin-bottom: 0px;">
+                    <a>Capacity (low-high)</a>
+                  </li>
+                  <li style="margin-bottom: 0px;">
+                    <a>Capacity (high-low)</a>
+                  </li>
+                </ul>
+              </div>
             </div>
+            <ul class="row">
+              <div *ngFor="let space of spaces | filter:searchText | paginate: { itemsPerPage: 6, currentPage: p };let i =index" class="col-lg-4 col-md-6 mb-3">
+                  <div class="room-grid-item">
+                    <figure class="gradient-overlay-hover link-icon">
+                      <a (click)="gotoBook(space._id)">
+                        <img
+                        src="{{space.details.img[0]}}"
+                          class="img-fluid rooms-img"
+                          alt="Image"
+                        />
+                      </a>
+                      <div class="room-services">
+                        <i
+                        *ngIf="space.assets.breakfast"
+                          class="fa fa-coffee"
+                          aria-hidden="true"
+                          data-toggle="popover"
+                          data-placement="right"
+                          data-trigger="hover"
+                          data-content="Breakfast Included"
+                          data-original-title="Breakfast"
+                        ></i>
+                        <i
+                        *ngIf="space.assets.wifi"
+                          class="fa fa-wifi"
+                          aria-hidden="true"
+                          data-toggle="popover"
+                          data-placement="right"
+                          data-trigger="hover"
+                          data-content="Free WiFi"
+                          data-original-title="WiFi"
+                        ></i>
+                        <i
+                        *ngIf="space.assets.tv"
+                          class="fa fa-tv"
+                          data-toggle="popover"
+                          data-placement="right"
+                          data-trigger="hover"
+                          data-content="Plasma TV with cable channels"
+                          data-original-title="TV"
+                        ></i>
+                        <i
+                        *ngIf="space.assets.whiteboard"
+                          class="fa fa-chalkboard"
+                          data-toggle="popover"
+                          data-placement="right"
+                          data-trigger="hover"
+                          data-content="Presentation Whiteboard"
+                          data-original-title="Whiteboard"
+                        ></i>
+                        <i
+                        *ngIf="space.assets.projector"
+                          class="fa fa-hdd"
+                          data-toggle="popover"
+                          data-placement="right"
+                          data-trigger="hover"
+                          data-content="Presentation projector"
+                          data-original-title="Projector"
+                        ></i>
+                      </div>
+                      <div class="room-price">€{{space.details.price}} / night</div>
+                    </figure>
+                    <div class="room-info">
+                      <h2 class="item-room-title">
+                        <a (click)="gotoBook(space._id)">{{space.details.name}} </a>
+                      </h2>
+                      <p class="item-venue-title">{{space.details.description}}</p>
+                    </div>
+                  </div>
+                </div>                
+            </ul>
+            <hr />
+            <section class="pagination-container">
+              <nav>
+                <pagination-controls class="pagination pull-left" (pageChange)="p = $event"></pagination-controls>
+                <!-- <ul class="pagination pull-left"> -->
+                  <!-- <li 
+                  *ngFor="let page of pagesArray; let index = index"
+                  [ngClass]="{ 'active': currentPage === index + 1 }"
+                  (click)="setPage(index + 1)"><a>{{ index + 1 }}</a></li>                  
+                </ul> -->
+                <!-- <jw-pagination [items]="spaces" (changePage)="onChangePage($event)"></jw-pagination> -->
+                
+              </nav>
+              
+              
+            </section>
           </div>
         </div>
       </div>
-    </section>
-  </div>
-
+    </div>
+  </section>
+</div>

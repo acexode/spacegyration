@@ -1,4 +1,4 @@
-<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div #loginSignup  class="modal fade bs-modal-sm" id="signupLogin" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
       <div class="modal-content p-4">
         <img class="logo mx-3 my-3" src="https://lifthub.org/images/160290cdb0652b0525e8191290986af1.png"/>
@@ -10,6 +10,7 @@
               </ul>
           </div>
         <div class="modal-body ">
+          <p class="text-danger">{{errMsg}}</p>
           <div id="myTabContent" class="tab-content">
          
           <div class="tab-pane fade active in" id="signin">
@@ -106,7 +107,7 @@
       </div>
         </div>
         <div class="modal-footer p-0">        
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button id="closeModal" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
           
         </div>
       </div>

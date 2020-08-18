@@ -700,7 +700,8 @@ a:hover{
 .photo-btn:hover,
 .locate-btn:hover{
 	opacity: 1;
-	background: #1abed7;
+	background-color: #ffc107;
+    border-color: #ffc107;
 	color: #fff;
 }
 .photo-btn{
@@ -859,7 +860,7 @@ a:hover{
 .enquiry-btn:visited,
 .enquiry-btn:focus,
 .enquiry-btn:hover{
-	background: #1abed7;
+	
 	color: #fff;
 	padding: 10px 0;
 	display: block;
@@ -869,7 +870,9 @@ a:hover{
 	font-weight: bold;
 	text-decoration: none;
 	outline: none;
-	border: solid 1px #1abed7;
+	border: solid 1px;
+	background-color: #ffc107;
+    border-color: #ffc107;
 	cursor: pointer;
 }
 .wishlist-btn,
@@ -4766,3 +4769,25 @@ hr {
   .link-icon:before {
     content: "\f102";
   }
+  .search-venue:focus{
+	outline: none;
+  }
+  .date-picker{
+    width: 100% !important;
+    background: #000;
+}
+.flatpickr-input{
+	display: block;
+	padding: .375rem .75rem;
+	width: 100% !important;
+	font-size: 1.5rem;
+	line-height: 1.5;
+	height: 30px;
+	color: #495057;
+	/* border: none !important; */
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}

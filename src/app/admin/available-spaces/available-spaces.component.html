@@ -1,0 +1,63 @@
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-center">
+                    <h4 class="mt-5 text-center">Available Spaces</h4>
+
+                    
+
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row px-3">
+            <div class="col-md-12 px-5">
+                <div *ngFor="let space of spaces  | paginate: { itemsPerPage: 6, currentPage: p };" class="row card card-list ">
+                    <div class="col-md-11  card-list-left ">
+                        <div class="row">
+                            <div class="col-1 p-0">
+                                <img style="width: 70px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS-ohtFViD0xjYloizfv_z3dwh8EEP2eDmqSg&usqp=CAU" alt="">
+
+                            </div>
+                            <div class="col-9">
+                                <p class="pt-4 pl-3 p-detail">{{space.details.name}}</p>
+                            </div>
+                            <div class="col-2 pt-2">
+                                <h2 class=" pt-4 text-secondary ">N{{space.details.price}}</h2>
+                                
+                            </div>
+                           
+                        </div>
+                    </div>                                                                            
+                    <a class="col-md-1  pt-2 text-center h3 text-light">View</a>
+                </div>     
+            </div>
+            
+            
+        </div>
+                <div class="col-md-12">
+                 <section class="pagination-container">
+                     <nav>
+                       <pagination-controls class="pagination pull-left" (pageChange)="p = $event"></pagination-controls>
+                       <!-- <ul class="pagination pull-left"> -->
+                         <!-- <li 
+                         *ngFor="let page of pagesArray; let index = index"
+                         [ngClass]="{ 'active': currentPage === index + 1 }"
+                         (click)="setPage(index + 1)"><a>{{ index + 1 }}</a></li>                  
+                       </ul> -->
+                       <!-- <jw-pagination [items]="spaces" (changePage)="onChangePage($event)"></jw-pagination> -->
+                       
+                     </nav>
+                     
+                     
+                   </section>
+                </div>
+        
+        <!-- end row -->
+
+    </div> <!-- container-fluid -->
+</div>

@@ -1,0 +1,56 @@
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-center">
+                    <h4 class="mt-5 text-center">Booked Spaces</h4>
+
+                    
+
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row justify-content-center px-3">
+            <div class="col-md-9 px-5">
+                <div *ngFor="let space of spaces" class="row card py-3">
+                    <div class="col-md-12 ">
+                        <div class="row">                          
+                           
+                            <div class="col-9">
+                                <div class="d-flex">
+                                    <div class="avater-container">
+                                        <img class="rounded-circle avater" style="width: 40px;" src="https://image.flaticon.com/icons/svg/929/929422.svg" alt="">
+                                   
+                                    </div>
+                                    <div>
+                                        <p class="pt-3 pl-4 p-detail mb-0 text-dark">Samson Dappa</p>
+                                        <span class="pt-4 pl-4  text-dark">{{space.details.name}}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                           
+                           
+                            <div class="col-2 ml-5">
+                                <button  class="btn btn-primary view-btn text-light py-2 px-5 mr-2">View</button>
+
+                            </div>
+                        </div>
+                    </div>                                                                            
+                   
+                </div>     
+            </div>
+           
+
+           
+        </div>
+        
+        <!-- end row -->
+
+    </div> <!-- container-fluid -->
+</div>
+

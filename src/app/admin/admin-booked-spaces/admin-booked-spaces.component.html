@@ -1,0 +1,51 @@
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-center">
+                    <h4 class="mt-5 text-center">Booked Spaces</h4>
+
+                    
+
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row px-3">
+            <div class="col-md-12 px-5">
+                <div *ngFor="let space of spaces" class="row card card-list ">
+                    <div class="col-md-11  card-list-left ">
+                        <div class="row">
+                            <div class="col-1 p-0">
+                                <img style="width: 70px;" src={{space.details.img[0]}} alt="">
+
+                            </div>
+                            <div class="col-7">
+                                <p class="pt-4 pl-3 p-detail">{{space.details.name}}</p>
+                            </div>
+                           
+                            <div class="col-2">
+                                <p class=" pt-4 p-detail">{{calcDuration(space.bookings[0].bookingEnd)}}</p>
+                                
+                            </div>
+                            <div class="col-2">
+                                <p class=" pt-4 p-detail">N{{space.details.price}}</p>
+
+                            </div>
+                        </div>
+                    </div>                                                                            
+                    <a class="col-md-1  pt-2 text-center h3 text-light">View</a>
+                </div>     
+            </div>
+           
+
+           
+        </div>
+        
+        <!-- end row -->
+
+    </div> <!-- container-fluid -->
+</div>

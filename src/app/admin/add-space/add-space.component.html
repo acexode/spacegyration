@@ -1,0 +1,163 @@
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex  justify-content-center">
+                    <h4 class="mt-2 text-center">Add Space</h4>
+
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row justify-content-center px-5">
+            <div class="col-md-9 px-5">
+                <div class="card px-5">
+                    <div class="card-body"> 
+                        <form [formGroup]="spaceForm" (ngSubmit)="submitForm()" class="addspace" >
+                            <div class="row">
+                                <div class="col-md-12 mb-3">                                                  
+                                      
+                                        <ngx-dropzone (change)="onSelect($event)">
+                                            <ngx-dropzone-label>
+                                                <div class="mb-1">
+                                                    <i class="fa fa-cloud-upload display-4 text-muted"></i>
+                                                </div>                                                                
+                                                <h4>Upload Images</h4>
+                                                <small>Drag and drop or click here</small>
+                                            </ngx-dropzone-label>
+                                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                            </ngx-dropzone-preview>
+                                          </ngx-dropzone>
+                                   
+                                </div>
+                                <div class="col-md-12 mt-2" >
+                                    <div class="form-group" >
+                                        <label for="">Name</label>  
+                                       <input class="form-control" placeholder="Space Title" formControlName="title" type="text">                                                       
+                                       
+                                    </div>
+                                  
+                                </div>
+        
+                                <div class="col-lg-6">
+                                    <div class="form-group mt-2 " >   
+                                        <label for="">Type</label>                                                      
+                                        <select (change)="onChange($event)" formControlName="type" class="form-control  ">
+                                            <option [selected]="true" disabled>Space Type</option>
+                                            <option *ngFor="let val of selectSpaceType" [ngValue]="val.value" >{{ val.value }}</option>
+                                                                                                   
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mt-2 " >
+                                        <label for="">Category</label>                                                       
+                                        <select   formControlName="type" class="form-control  ">
+                                            <option [selected]="true" disabled>Category</option>
+                                            <option *ngFor="let val of categoryType" [ngValue]="val.value" >{{ val.value }}</option>
+                                                                                                   
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mt-2" >
+                                        <label for="">Size</label> 
+                                        <input class="form-control" placeholder="Space size on square meters" formControlName="size" type="text"> 
+                                    </div>
+                                </div>
+                                <div class="col-md-6" >
+                                    <div class="form-group" >
+                                        <label for="">Capacity</label> 
+                                       <input class="form-control" placeholder="Capacity" formControlName="capacity" type="text">                                                       
+                                       
+                                    </div>
+                                  
+                                </div>
+                                <div class="col-md-12" >
+                                    <div class="form-group" >
+                                        <label for="">Address</label> 
+                                       <input class="form-control" placeholder="Street Address" formControlName="address" type="text"> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mt-2 " >  
+                                        <label for="">State</label>                                                      
+                                        <select formControlName="state" class="form-control  ">
+                                            <option [selected]="true" disabled>State</option>
+                                            <option value="space" >Abuja</option>                                                           
+                                            <option value="event" >Lagos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mt-2 " >   
+                                        <label for="">City</label>                                                     
+                                        <select formControlName="city" class="form-control  ">
+                                            <option [selected]="true" disabled >City</option>
+                                            <option value="space" >Abuja</option>                                                           
+                                            <option value="event" >Lagos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mt-2" >
+                                        <label for="">Price</label> 
+                                        <input class="form-control" placeholder="Price" formControlName="price" type="text"> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="">Discount %</label> 
+                                    <div class="form-group mt-2" >
+                                        <input class="form-control" placeholder="Discount" formControlName="discount" type="text"> 
+                                    </div>
+                                </div>
+                                <div class="col-md-12" >
+                                    <div class="form-group"> 
+                                        <label for="">Description</label>
+                                            <textarea placeholder="Description" required="" class="form-control" rows="5"></textarea>
+                                        </div>
+                                  
+                                </div>
+                                <div class="col-md-12" >
+                                    <div class="form-row my-2" >
+                                        <label for="">Select available facilities/features</label>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-4" *ngFor="let data of amenities;let i=index">
+                                            <div class="custom-control custom-radio mb-3">
+                                                <input type="checkbox" [value]="data.value" id={{data.value}}  (change)="onCheckboxChange($event)"  class="custom-control-input">                                                                   
+                                                <label class="custom-control-label" for={{data.value}}>{{data.name}}</label>
+                                            </div>
+                                        </div>                                                                                             
+
+                                                                                            
+                                                                                           
+                                       
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center my-2" >
+                                        <button class="btn btn-primary">Add Space</button>
+                                    </div>
+                                   
+                                  
+                                </div>
+                                
+                            </div>
+        
+                        </form>
+        
+                    </div>
+                </div>
+            </div>
+           
+
+           
+        </div>
+        
+        <!-- end row -->
+
+    </div> <!-- container-fluid -->
+</div>

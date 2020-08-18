@@ -39,11 +39,22 @@
         <ul  class="nav navbar-nav right-nav">  
             <li>
                 <a
+                  *ngIf="!isLoggedIn"
                   data-effect="mfp-zoom-in"
                   data-toggle="modal" 
                   data-target=".bs-modal-sm"
                   class="popup-inline"
+                  id="triggerLogin"
                   >Login</a
+                >
+              </li>
+            <li>
+                <a
+                  *ngIf="isLoggedIn"
+                  routerLink="/user"
+                  data-effect="mfp-zoom-in"
+                  class="popup-inline"                  
+                  >Profile</a
                 >
               </li>
         </ul>
@@ -71,8 +82,8 @@
                       </li>
                       <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" >Meeting spaces</a>
                           <ul class="dropdown-menu" style="top:0 !important">
-                              <li><a (click)="goto('events/private meeting')" class="dropdown-item" >Private Meeting</a></li>
-                              <li><a (click)="goto('events/board meeting')" class="dropdown-item" >Board Meeting</a></li>
+                              <li><a (click)="goto('events/private meeting')" class="dropdown-item" >Private Meeting</a></li> 
+                              <li><a (click)="goto('events/board meeting')" class="dropdown-item" >Board Meeting</a></li> 
                               <li><a (click)="goto('events/group meeting')" class="dropdown-item" >Group Meeting</a></li>
                               <li><a (click)="goto('events/reception')" class="dropdown-item" >Receptions</a></li>
                           </ul>
