@@ -60,6 +60,7 @@ export class DispatcherService {
   addSpace(space) {
     
     console.log(this.httpOptions)
+    console.log(space)
     return this.http.post(`${this.base_url}/api/space/`, space, this.httpOptions);
   }
   uploadImage(formData) {    

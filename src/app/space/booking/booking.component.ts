@@ -50,11 +50,21 @@ export class BookingComponent implements OnInit {
     checkOutDate;
     checkOutTime;
     recurringDate;
-   
+    allAmenities = [
+      {label: 'Air Condition', value: 'air_condition', path: 'assets/img/aircon-icon.png'},
+      {label: 'Refrigerator', value: 'refrigerator', path: 'assets/img/refrigerator.png'},
+      {label: 'Projector', value: 'projector', path: 'assets/img/projector-icon.png'},
+      {label: 'Sound system', value: 'sound_system', path: 'assets/img/sound-icon.png'},
+      {label: 'TV', value: 'tv', path: 'assets/img/tv.png'},
+      {label: 'WhiteBoard', value: 'whiteBoard', path: 'assets/img/whiteboard.png'},
+      {label: 'Gym', value: 'gym', path: 'assets/img/gym.png'},     
+    ]
+    spaceAmenities = []
     errMsg = false;
     spacePrice  = 1000
     paymentSuccessful = false
     services = 0
+    serviceList = []
     user
     serviceObject = {
       wifi: true,
@@ -107,19 +117,34 @@ export class BookingComponent implements OnInit {
    }
 
    ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('data');   
-    console.log(this.spaceData)
+    const id = this.route.snapshot.paramMap.get('data');
     setTimeout(() => this.success = true, 10000);
     this.dispatcher.getSingle(id).subscribe((data: any) => {
       this.spaceData = data.space;
       this.spacePrice = data.space.details.price
+      console.log(data.space.assets)
+      let amenities = []
+      let services = []
+      for (const property in this.spaceData.assets) {
+        if(this.spaceData.assets[property] == true){
+          amenities.push(property)
+        }
+      }
+      for (const property in this.spaceData.services) {
+          this.serviceList.push({name: property, value : this.spaceData.services[property]})
+      }
+      console.log(this.serviceList)      
+      this.spaceAmenities = this.allAmenities.filter(e =>{
+        return amenities.includes(e.value)       
+      })
+      console.log(this.spaceAmenities)
       this.dispatcher.spaceType(data.space.category).subscribe((category:any) =>{
         console.log(category)
         this.similar = category.space
       })
-      console.log(data.space);
-      console.log(this.spacePrice);
-      console.log(this.minDate());
+      // console.log(data.space);
+      // console.log(this.spacePrice);
+      // console.log(this.minDate());
       // init form
       
     }); 
@@ -262,10 +287,10 @@ export class BookingComponent implements OnInit {
   FieldsChange(event:any){
   console.log(event.currentTarget.id);
   if(event.currentTarget.checked){
-        this.serviceObject[event.currentTarget.id] = true
+        // this.serviceObject[event.currentTarget.id] = true
         this.services  += parseInt(event.currentTarget.value);
   }else{
-    this.serviceObject[event.currentTarget.id] = false
+    // this.serviceObject[event.currentTarget.id] = false
     this.services -= parseInt(event.currentTarget.value);
   }
   

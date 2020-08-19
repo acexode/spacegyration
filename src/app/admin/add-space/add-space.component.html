@@ -56,7 +56,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group mt-2 " >
                                         <label for="">Category</label>                                                       
-                                        <select   formControlName="type" class="form-control  ">
+                                        <select (change)="onChangeCategory($event)"  formControlName="category" class="form-control  ">
                                             <option [selected]="true" disabled>Category</option>
                                             <option *ngFor="let val of categoryType" [ngValue]="val.value" >{{ val.value }}</option>
                                                                                                    
@@ -118,13 +118,13 @@
                                 <div class="col-md-12" >
                                     <div class="form-group"> 
                                         <label for="">Description</label>
-                                            <textarea placeholder="Description" required="" class="form-control" rows="5"></textarea>
+                                            <textarea placeholder="Description" required="" formControlName="description" class="form-control" rows="5"></textarea>
                                         </div>
                                   
                                 </div>
                                 <div class="col-md-12" >
                                     <div class="form-row my-2" >
-                                        <label for="">Select available facilities/features</label>
+                                        <label for=""><b>Select available facilities/features</b></label>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-4" *ngFor="let data of amenities;let i=index">
@@ -132,7 +132,26 @@
                                                 <input type="checkbox" [value]="data.value" id={{data.value}}  (change)="onCheckboxChange($event)"  class="custom-control-input">                                                                   
                                                 <label class="custom-control-label" for={{data.value}}>{{data.name}}</label>
                                             </div>
-                                        </div>                                                                                             
+                                        </div> 
+                                    </div>  
+                                </div>
+                                <div class="col-md-12" >
+                                    <div class="form-row my-2" >
+                                        <label for=""><b>Enter Price for Services</b></label>
+                                    </div>
+                                    <div class="form-row">
+                                        <ng-container *ngFor="let data of services;let i=index">
+                                            <div class="col-3 mt-3" >
+                                                <label  for={{data.value}}>{{data.name}}</label>                                               
+                                            </div>                                                                                             
+                                            <div class="col-9" >
+                                                <div class="mb-3">
+                                                    <input type="text"  formControlName={{data.value}}  placeholder="₦"  class="form-control">                                                                   
+                                                   
+                                                </div>
+                                            </div>                                                                                             
+
+                                        </ng-container>
 
                                                                                             
                                                                                            

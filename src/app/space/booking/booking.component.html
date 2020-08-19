@@ -73,98 +73,26 @@
                 <div class="item-fb">
                   <h3>Food &amp; Beverages Options</h3>
                   <ul class="row">
-                    <li class="col-sm-4">
-                      <input (change)="FieldsChange($event)"  value="500" id ="breakfast" type="checkbox"  />      
-                      Breakfast
+                    <li *ngFor="let service of serviceList" class="col-sm-4">
+                      <input (change)="FieldsChange($event)"  value={{service.value}} id ="breakfast" type="checkbox"  />      
+                      {{service.name}}
                     </li>                    
-                    <li class="col-sm-4">
-                      <input (change)="FieldsChange($event)" value="500" id ="alcohol" type="checkbox" mdInput /> 
-                      Alcohol
-                    </li>
-                    <li class="col-sm-4">
-                      <input (change)="FieldsChange($event)" value="500" id ="lunch" type="checkbox" mdInput /> 
-                      Lunch
-                    </li>                    
-                    <li class="col-sm-4">
-                      <input (change)="FieldsChange($event)" value="500" id ="snacks-drinks" type="checkbox" mdInput /> Snacks &amp; drinks
-                    </li>
-                    <li class="col-sm-4">
-                      <input (change)="FieldsChange($event)" value="500" id ="dinner" type="checkbox" mdInput /> Dinner
-                    </li>
-                    <li class="col-sm-4">
-                      <input (change)="FieldsChange($event)" value="500" id ="external-catering" type="checkbox" mdInput /> 
-                      External Catering
-                    </li>
+                   
                   </ul>
                 </div>
                 <hr/>
                 <div class="item-ammenities">
                   <h2>Amenities</h2>
                   <ul class="row">
-                    <li class="col-sm-4">
+                    <li *ngFor="let amenity of spaceAmenities" class="col-sm-4">
                       <img
                        
                         width="35px"
                         height="30px"
-                        src="assets/img/internet-icon.png"
-                      />Wi-fi
+                        src={{amenity.path}}
+                      />{{amenity.label}}
                     </li>
-                    <li class="col-sm-4">
-                      <img
-                       
-                        width="35px"
-                        height="30px"
-                        src="assets/img/aircon-icon.png"
-                      />Air-conditioning
-                    </li>
-                    <li class="col-sm-4 not-available">
-                      <img
-                       
-                        width="35px"
-                        height="30px"
-                        src="assets/img/mic-icon.png"
-                      />Microphone
-                    </li>
-                    <li class="col-sm-4 not-available">
-                      <img
-                       
-                        width="35px"
-                        height="30px"
-                        src="assets/img/sound-icon.png"
-                      />Sound System
-                    </li>
-                    <li class="col-sm-4 not-available">
-                      <img
-                       
-                        width="35px"
-                        height="30px"
-                        src="assets/img/projector-icon.png"
-                      />Projector / Screen
-                    </li>
-                    <li class="col-sm-4 not-available">
-                      <img
-                       
-                        width="35px"
-                        height="30px"
-                        src="assets/img/stage-icon.png"
-                      />Stage
-                    </li>
-                    <li class="col-sm-4">
-                      <img
-                       
-                        width="35px"
-                        height="30px"
-                        src="assets/img/bar-icon.png"
-                      />Bar
-                    </li>
-                    <li class="col-sm-4 not-available">
-                      <img
-                       
-                        width="35px"
-                        height="30px"
-                        src="assets/img/whiteboard.png"
-                      />Whiteboard
-                    </li>
+                    
                   </ul>
                 </div>
                

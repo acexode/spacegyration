@@ -64,9 +64,10 @@ export class EventSpaceComponent implements OnInit {
   gotoBook(index) {
     console.log(index);
     if (this.dispatcher.isLoggedIn()) {
-      this.router.navigate(['space/booking', { data: index }]);
-    } else {     
+      //alert('helo')
       document.getElementById("triggerLogin").click()
+    } else {     
+       this.router.navigate(['space/booking', { data: index }]);
 
     }
   }

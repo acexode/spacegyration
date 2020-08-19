@@ -20,19 +20,24 @@ export class AddSpaceComponent implements OnInit {
   submitted = false; 
   disabledSubmitButton: boolean = true
   amenities: Array<any> = [
-    { name: 'Air-condition', value: 'air-condition' },
-    { name: 'Sound System', value: 'sound-system' },
-    { name: 'Dinner', value: 'dinner' },
-    { name: 'Wifi', value: 'wifi' },
-    { name: 'Breakfast', value: 'breakfast' },
-    { name: 'Lunch', value: 'lunch' },
-    { name: 'Projector', value: 'projector' },
+    { name: 'TV', value: 'tv' },
+    { name: 'Air-condition', value: 'air_condition' },
+    { name: 'Refrigerator', value: 'refrigerator' },
+    { name: 'Sound System', value: 'sound_system' },       
+    { name: 'Projector', value: 'projector' },    
+    { name: 'WhiteBoard', value: 'whiteBoard' },
+    { name: 'Gym', value: 'gym' }
+   
+  ]; 
+  services: Array<any> = [    
+    { name: 'Wifi', value: 'wifi' },  
+    { name: 'Breakfast', value: 'breakfast', cost: '', disabled:true },
+    { name: 'Lunch', value: 'lunch', cost: '', disabled:true }, 
+    { name: 'Dinner', value: 'dinner', cost: '', disabled:true },   
+    { name: 'Snacks & Drinks', value: 'snacks_drinks', cost: '', disabled:true },
+    { name: 'External Catering', value: 'external_catering', cost: '', disabled:true },
+    { name: 'Airport Transfer', value: 'airport_transfer', cost: '', disabled:true },
     
-    { name: 'Alcohol', value: 'alcohol' },
-    { name: 'Halal', value: 'halal' },
-    { name: 'Snacks & Drinks', value: 'snacks-drinks' },
-    { name: 'External Catering', value: 'external-catering' },
-    { name: 'Vegetarian', value: 'vegetarian' },
   ]; 
   @HostListener('input') oninput() {
     if (this.spaceForm.valid) {
@@ -50,9 +55,18 @@ export class AddSpaceComponent implements OnInit {
       address: ['', Validators.required],      
       state: ['', Validators.required],      
       city: ['', Validators.required],      
+      wifi: ['', Validators.required],      
       price: ['', Validators.required],      
       discount: ['', Validators.required],  
-      checkArray: this.formBuilder.array([], [Validators.required])   
+      description: ['', Validators.required],  
+      breakfast: ['', Validators.required],  
+      lunch: ['', Validators.required],  
+      dinner: ['', Validators.required],  
+      snacks_drinks: ['', Validators.required],  
+      external_catering: ['', Validators.required],  
+      airport_transfer: ['', Validators.required],  
+      checkArray: this.formBuilder.array([], [Validators.required])
+      
     });
     
   }
@@ -129,6 +143,9 @@ onChange(value) {
   }    
   // this.categoryType = value
 }
+onChangeCategory(e){
+  // this.spaceForm.get('category').setValue(e.target.value)
+}
 get spaceType() {
   return this.spaceForm.get('type');
 }
@@ -138,6 +155,7 @@ get category() {
   get f() { return this.spaceForm.controls; }
   onCheckboxChange(e) {
     const checkArray: FormArray = this.spaceForm.get('checkArray') as FormArray;
+    console.log(checkArray.value)
     console.log(e.target.checked)
     if (e.target.checked) {
       checkArray.push(new FormControl(e.target.value));
@@ -152,6 +170,19 @@ get category() {
       });
     }
   }
+  onChangeService(e) {
+    let temp = [...this.services]
+    const servicesArray: FormArray = this.spaceForm.get('servicesArray') as FormArray;
+    console.log(e.target.name, e.target.value)
+    servicesArray.controls.forEach((item: FormControl,i) => {
+      if (item.value == e.target.value) {
+        servicesArray.removeAt(i);
+        return;
+      }
+      i++;
+    });
+  }
+  
   onSelect(event) {
     console.log(event);
     this.files.push(...event.addedFiles);
@@ -172,8 +203,7 @@ onRemove(event) {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
 }
-  submitForm(){
-    console.log(this.spaceForm.value)
+  submitForm(){    
     console.log(this.files)
     const formData = new FormData();   
     for (var i = 0; i < this.files.length; i++) {
@@ -181,11 +211,17 @@ onRemove(event) {
     }    
     this.dispatcher.uploadImage( formData)
     .subscribe((res : any) => {          
-      console.log(res.images);
-       let form  = this.spaceForm.value
-       form.images = res.images
-          console.log(form);
-        this.dispatcher.addSpace(JSON.stringify(form)).subscribe(res =>{
+       console.log(res.images);       
+       let spaceData = {...this.spaceForm.value}       
+       console.log(spaceData)
+       console.log(spaceData.checkArray)
+        for (var i = 0; i < spaceData.checkArray.length; i++) {
+            spaceData[spaceData.checkArray[i]] = true
+        }
+        // delete spaceData.checkArray
+        spaceData.images = res.images
+          console.log(spaceData);
+        this.dispatcher.addSpace(spaceData).subscribe(res =>{
           this.successMsg()
           console.log(res)
           this.spaceForm.reset()
