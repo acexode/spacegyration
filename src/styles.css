@@ -13,8 +13,7 @@ body{
 }
 body {
 	font-family: 'Montserrat', sans-serif;;
-	font-size: 16px;
-  	padding-top: 50px;
+	font-size: 16px;  
   	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
   	letter-spacing: -0.02em;
@@ -38,7 +37,7 @@ a:hover{
 }
 .navbar-brand{
 	height: auto;
-	padding: 22px 20px;
+	padding: 10px 20px;
 	outline: none;
 }
 .navbar-brand img{
@@ -134,7 +133,7 @@ a:hover{
 }
 
 .top-container{
-	margin-top: 13px;
+	margin-top: 0;
 }
 .content-container{
 	margin: 40px 0;
@@ -193,8 +192,8 @@ a:hover{
 }
 .main-tagline{
 	color: #fff;
-	font-size: 50px;
-	line-height: 50px;
+	font-size: 3rem;
+	/* line-height: 50px; */
     letter-spacing: -0.04em;
     font-family: 'Roboto Slab', sans-serif;
 	font-weight: 100;
@@ -3510,8 +3509,8 @@ table thead th{
 		margin-top: 20px;
 	}
 	.main-tagline{
-		font-size: 40px;
-		line-height: 40px;
+		font-size: 2rem;
+		/* line-height: 2rem; */
 	}
 	.main-tagline br{
 		display: inline-block;

@@ -66,6 +66,7 @@ export class SignupLoginComponent implements OnInit {
       this.dispatch.login(this.signupUser).subscribe(token =>{
         this.data = token['token']
         localStorage.setItem('token', this.data);
+        location.reload();
         document.getElementById("closeModal").click()      
         // this.router.navigate(['space']);
       });
@@ -85,6 +86,7 @@ export class SignupLoginComponent implements OnInit {
       console.log(res)
       this.data = res['token']
       localStorage.setItem('token', this.data); 
+      location.reload();
       document.getElementById("closeModal").click()
       // this.router.navigate(['space'])
     },err => {

@@ -8,12 +8,13 @@ import { DispatcherService } from 'src/app/dispatcher.service';
   styleUrls: ['./occupants.component.css','../admin-home/admin-home.component.css']
 })
 export class OccupantsComponent implements OnInit {
-  spaces = SampleData
+  spaces 
   constructor(private dispatcher: DispatcherService) { }
 
   ngOnInit(): void {
-    this.dispatcher.getOccupants().subscribe(data =>{
+    this.dispatcher.getOccupants().subscribe((data:any) =>{
       console.log(data)
+      this.spaces = data.space
     })
   }
 

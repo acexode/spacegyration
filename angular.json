@@ -29,7 +29,8 @@
               "node_modules/flatpickr/dist/flatpickr.min.css"
             ],
             "scripts": [
-              "src/assets/js/app.js"
+              "src/assets/js/app.js",
+              "src/assets/js/script.js"
             ]
           },
           "configurations": {

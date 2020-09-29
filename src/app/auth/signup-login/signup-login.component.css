@@ -1,8 +1,4 @@
-.nav-tabs>li {
-    float: left;
-    margin-bottom: -1px;
-    width: 50%;
-}
+
   .md-form {
     position: relative;
     margin-top: 1.5rem;
@@ -84,24 +80,19 @@ mdb-error {
 .btn.disabled, .btn:disabled {
     opacity: .65;
 }
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    background-color: #D69E2E !important;
-    border: none;
-    color: #fff;
-}
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover, .btn-warning {
-    background-color: #fb3!important;
-    border: none;
-    color: #fff;
-}
+
 .btn.btn-block {
     margin: inherit;
 }
 .btn-warning.disabled, .btn-warning:disabled {
     color: #212529;
-    background-color: #ffc107;
+    background-color: #D69E2E;
     border-color: #ffc107;
 }
 .modal-footer {
     border: none;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #ffc107;
 }

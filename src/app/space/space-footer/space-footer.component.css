@@ -1,16 +1,20 @@
 footer.page-footer {
+     
     bottom: 0;
-    color: #fff !important;
-    padding: 60px 0;
+    color: #fff !important;    
+    z-index: 10000;
+
 }
 .page-footer a{
     color:#fff;
 }
 .stylish-color-dark {
+    padding: 60px 0;
     background-color: #3e4551!important;
 }
 .font-small {
-    font-size: 1.2rem;
+    font-size: .9rem;
+    margin-bottom: 5px;
 }
 .font-weight-bold {
     font-weight: 700!important;
@@ -20,4 +24,33 @@ footer.page-footer {
 }
 .footer-logo{
     width: 100px;
+}
+.underline{
+    width: 150px;
+    height: 2.5rem;   
+    border-bottom: 3px solid #FDC441;
+}
+.footer-copyright{
+    background: #34546D;
+    padding: 40px;
+    color: white;
+}
+.footer-signup{
+    border-radius: 18px;
+    width: 8em;   
+
+}
+.social-media a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.social-media a i{
+    color: black;
+    font-size: 22px;
 }

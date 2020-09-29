@@ -14,10 +14,14 @@ export class SpaceNavComponent implements OnInit {
     this.isLoggedIn = !this.dispatcher.isLoggedIn()
     console.log(this.isLoggedIn)
   }
-  goto(e){   
+  goto(e, title =''){   
     console.log(e)
     this.router.navigate(['space/' + e]);
     
 
+  }
+  logout(){
+    localStorage.clear();
+    location.reload();
   }
 }

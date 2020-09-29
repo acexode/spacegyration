@@ -1,37 +1,44 @@
+<div class="row d-flex flex-column">
+ <div class="col-12">
+     <div class="main-sidebar" style="background-color: #f1f5f7; " data-sidebar="dark">
+         <div id="layout-wrapper">
+         
+             <app-user-nav></app-user-nav>
+             <!-- Left Sidebar End -->
+         
+             <!-- ============================================================== -->
+             <!-- Start right Content here -->
+             <!-- ============================================================== -->
+             <div class="main-content">
+         
+                 <router-outlet></router-outlet>
+                 <!-- End Page-content -->
+         
+                 <!-- <footer class="footer">
+                     <div class="container-fluid">
+                         <div class="row">
+                             <div class="col-sm-6">
+                                 <script>document.write(new Date().getFullYear())</script> © outsource-global.
+                             </div>
+                             <div class="col-sm-6">
+                                 <div class="text-sm-right d-none d-sm-block">
+                                     Crafted with <i class="mdi mdi-heart text-danger"></i> by Outsource Dev Team
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </footer> -->
+             </div>
+             <!-- end main content-->
+         </div>
+         
+     </div>
 
-<div class="main-sidebar" style="background-color: #f1f5f7; height:100vh" data-sidebar="dark">
-    <div id="layout-wrapper">
-    
-        <app-user-nav></app-user-nav>
-        <!-- Left Sidebar End -->
-    
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
-    
-            <router-outlet></router-outlet>
-            <!-- End Page-content -->
-    
-            <!-- <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © outsource-global.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-right d-none d-sm-block">
-                                Crafted with <i class="mdi mdi-heart text-danger"></i> by Outsource Dev Team
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer> -->
-        </div>
-        <!-- end main content-->
-    
-    </div>
+ </div> 
+ <div class="col-12">
+     <app-space-footer></app-space-footer>
 
+ </div>  
 </div>
 
         <!-- Begin page -->

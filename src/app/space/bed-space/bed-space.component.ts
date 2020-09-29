@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Component, OnInit, NgModule, ViewEncapsulation, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { DispatcherService } from 'src/app/dispatcher.service';
 import { Router } from '@angular/router';
+import { Options, LabelType } from 'ng5-slider';
 export const SampleData  = [{
   spaceType: 'Bed Space',
   details : {
@@ -192,7 +193,24 @@ export const SampleData  = [{
 })
 export class BedSpaceComponent implements OnInit {
   @ViewChild('loginSignup', { static: false }) signupLogin:ElementRef;
+  title: ''
   items = [];
+  minValue: number = 1000;
+  maxValue: number = 100000;
+  options: Options = {
+    floor: 1000,
+    ceil: 100000,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<small>Min </small> ₦ ' + value;
+        case LabelType.High:
+          return '<small>Max </small> ₦ ' + value;
+        default:
+          return '₦ ' + value;
+      }
+    }
+  };
   p: number = 1;
   public pagesArray: Array<number> = [];
   public currentPage: number = 1;
@@ -282,5 +300,10 @@ export class BedSpaceComponent implements OnInit {
   numPages()
 {
     return Math.ceil(this.spaces.length / this.itemsPerPage);
+}
+priceChange(){
+  
+  console.log(this.maxValue)
+  console.log(this.minValue)
 }
 }

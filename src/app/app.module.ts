@@ -39,7 +39,12 @@ import { AdminBookedHistoryComponent } from './admin/admin-booked-history/admin-
 import { AdminBookedSpacesComponent } from './admin/admin-booked-spaces/admin-booked-spaces.component';
 import { AdminAccountSettingsComponent } from './admin/admin-account-settings/admin-account-settings.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
+import { SuperAdminComponent } from './admin/super-admin/super-admin.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { Ng5SliderModule } from 'ng5-slider';
+import { SpaceTitleComponent } from './space/space-title/space-title.component';
+import { SpaceCardsComponent } from './space/space-cards/space-cards.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +72,11 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     AvailableSpacesComponent, 
     OccupantsComponent, 
     AddSpaceComponent,     
-    AdminNavComponent, AdminBookedHistoryComponent, AdminBookedSpacesComponent, AdminAccountSettingsComponent, AdminChangePasswordComponent,     
+    AdminNavComponent, 
+    AdminBookedHistoryComponent,
+     AdminBookedSpacesComponent, 
+     AdminAccountSettingsComponent, 
+     AdminChangePasswordComponent, SpaceTitleComponent, SpaceCardsComponent, SuperAdminComponent,     
   ],
   imports: [
     BrowserModule,
@@ -79,7 +88,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     Ng2FlatpickrModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    Ng5SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

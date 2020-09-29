@@ -4,12 +4,12 @@
         <div class="d-flex">                     
             <div class="navbar-brand-box">
                 <a href="/space" class="logo ">                               
-                    <h3 class="pt-4 text-light">SpaceGyration</h3>
-                </a>                           
+                    <h3 class="pt-4 text-light logo-text">SpaceGyration</h3>
+                </a>                   
             </div>
 
             <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
-                <i class="las la-bars"></i>
+                <i class="las la-bars text-light"></i>
             </button> 
         </div>
 
@@ -36,15 +36,6 @@
                 </div>
             </div>
 
-            <div class="dropdown d-none d-lg-inline-block ml-1">
-                <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
-                    <i class="las la-expand"></i>
-                </button>
-            </div>
-
-            
-
-            
 
         </div>
     </div>
@@ -59,7 +50,7 @@
         <ul class="sidebar-menu">
             <li class="menu-title" ><a [routerLink]="['/admin/admin-dashboard']" >Dashboard</a></li>
             <li class="treeview">
-              <a href="javascript: void(0);">
+              <a href="">
                   <i class="las la-hotel pr-2"></i> <span>Spaces</span> <i class="fa fa-angle-right pull-right"></i>
               </a>
               <ul class="treeview-menu">
@@ -78,7 +69,7 @@
                         <i class="fa fa-angle-right pull-right"></i>
                 
               </a>
-              <ul class="treeview-menu" style="display: none;">
+              <ul class="treeview-menu">
                 <li><a [routerLink]="['/admin/account-setting']">Account Setting</a></li>
                 <li><a [routerLink]="['/admin/change-password']"> Change Password</a></li>
                

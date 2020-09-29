@@ -1,9 +1,10 @@
 <div>    
     <section id="content-container" class="content-container">
       <div class="container">
+        <app-space-title></app-space-title>
         <div class="item-list mt-5">
           <div class="row row-offcanvas row-offcanvas-right">
-            <div class="col-sm-3 sidebar-offcanvas">
+            <div class="col-sm-3 sidebar-offcanvas">              
               <div class="left-filter-container">
                 <h6>
                   <i aria-hidden="true" class="fa fa-location-arrow"></i>
@@ -27,6 +28,20 @@
                       </label>
                     </li>                   
                   </ul>
+                </div>
+              </div>
+              <div class="left-filter-container">
+                <h6>
+                  <i aria-hidden="true" class="fa fa-dollar"></i>  Budget
+                </h6>
+                <div class="filter-list">
+                  <ul class="row">  
+                    <li class="col-sm-12">                      
+                        <ng5-slider (valueChange)="priceChange()" [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                      
+                    </li>
+                  </ul>
+
                 </div>
               </div>
               <div class="left-filter-container">
@@ -76,13 +91,18 @@
                   </ul>
                 </div>
               </div>
+             
               <div class="left-filter-container">
                 <h6>
                   <i aria-hidden="true" class="fa fa-cutlery"></i> Food
                   &amp; Beverage
                 </h6>
+                
                 <div class="filter-list">
+                  
                   <ul class="row">
+
+                   
                     <li class="col-sm-12">
                       <label class="checkbox"
                         ><input
@@ -240,9 +260,9 @@
                         <div class="room-price">€{{space.details.price}} / night</div>
                       </figure>
                       <div class="room-info">
-                        <h2 class="item-room-title">
+                        <h5 class="item-room-title">
                           <a (click)="gotoBook(space._id)">{{space.details.title}} </a>
-                        </h2>
+                        </h5>
                         <p class="item-venue-title">{{space.details.description}}</p>
                       </div>
                     </div>
