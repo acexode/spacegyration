@@ -105,7 +105,14 @@
 }
 @media (max-width: 380px) {
   .navbar-brand-box {
-    display: none;
+    display: block;
+    width: 100px;
+    margin-right: 20px;
+    padding-top: 5px;
+   
+  }
+  .navbar-brand-box a h3 {    
+    font-size: 90%;
   }
 }
 .page-title-box {
@@ -144,9 +151,15 @@
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
-.main-content {
-  margin-left: 300px;
-  overflow: hidden;
+@media (min-width: 992px) {
+  .main-content {
+    margin-left: 300px;    
+    overflow: hidden;
+  }
+  
+}
+.main-content.active{
+  margin-left: 0;
 }
 .main-content .content {
   padding: 0 15px 10px 15px;
@@ -168,26 +181,28 @@
   border: none !important;
 }
 
-@media (max-width: 992px) {
-  .vertical-menu {
-    display: none;
-  }
+@media (max-width: 300px) {
+ 
   .main-content {
     margin-left: 0 !important;
   }
   .main-sidebar.sidebar-enable .vertical-menu {
     display: block;
   }
+  .vertical-collpsed .main-content {
+    margin-left: 0px;
+  }
 }
-.vertical-collpsed .main-content {
-  margin-left: 70px;
-}
+/* @media only screen and (max-width: 768px) {
+ 
+  .vertical-menu {
+    display: none;
+  }
+} */
 /* .vertical-collpsed .navbar-brand-box {
   width: 70px !important;
 } */
-.navbar-brand-box.active {
-  width: 70px !important;
-}
+
 .vertical-collpsed .logo span.logo-lg {
   display: none;
 }
@@ -203,8 +218,17 @@
 .vertical-menu.active .sidebar-menu {
   display: none;
 }
-.vertical-menu.active .logo-text {
-  font-size: 12px !important;
+.navbar-brand-box.active {  
+  display: flex;
+  justify-content: center;
+  padding-top: 3px;
+  width: 100px;
+  margin-right: 20px;   
+}
+
+.navbar-brand-box.active a h3 {
+  font-size: 90% !important;
+  margin-right: 20px;
 }
 /* .vertical-collpsed .sidebar-menu {
   position: absolute;
@@ -695,7 +719,7 @@
   .main-sidebar[data-layout="horizontal"][data-topbar="light"]
     .navbar-brand-box
     .logo-light {
-    display: none;
+    /* display: none; */
   }
   .main-sidebar[data-layout="horizontal"][data-topbar="light"] .topnav {
     background-color: #34546D;
@@ -1027,9 +1051,17 @@
   height: 80px;  
 }
 .p-detail{
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: #7F878F;
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .p-detail{
+    font-size: .8rem;
+   
+    color: #7F878F;
+  }
 }
 .search-form{
   margin-top: 10px;

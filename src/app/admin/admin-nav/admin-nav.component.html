@@ -42,7 +42,7 @@
 </header>
 
 <!-- ========== Left Sidebar Start ========== -->
-<div class="vertical-menu" >
+<div *ngIf="!super_admin" class="vertical-menu" >
 
     <div data-simplebar class="h-100">
 
@@ -62,7 +62,7 @@
                    
               </ul>
             </li>
-            <li class="treeview">
+            <li  class="treeview">
               <a href="javascript: void(0);">
                 <i class="las la-user pr-2"></i>
                         <span>User</span>
@@ -72,6 +72,45 @@
               <ul class="treeview-menu">
                 <li><a [routerLink]="['/admin/account-setting']">Account Setting</a></li>
                 <li><a [routerLink]="['/admin/change-password']"> Change Password</a></li>
+               
+              </ul>
+            </li>
+           
+         </ul>
+       
+        <!-- Sidebar -->
+    </div>
+</div>
+<div *ngIf="super_admin" class="vertical-menu" >
+
+    <div data-simplebar class="h-100">
+
+        <!--- Sidemenu -->
+        <ul class="sidebar-menu">
+            <li class="menu-title" ><a [routerLink]="['/super-admin/admin-dashboard']" >Dashboard</a></li>
+            <li class="treeview">
+              <a href="">
+                  <i class="las la-hotel pr-2"></i> <span>Spaces</span> <i class="fa fa-angle-right pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                    <li><a [routerLink]="['/super-admin/booked-spaces']" >Booked Spaces</a></li>           
+                    <li><a [routerLink]="['/super-admin/available-spaces']" >Available Spaces</a></li>           
+                    <li><a [routerLink]="['/super-admin/occupants']" >Occupants</a></li>           
+                    <li><a [routerLink]="['/super-admin/booked-history']" >Booked History</a></li>
+                    <li><a [routerLink]="['/super-admin/add-space']" >Add Spaces</a></li>           
+                   
+              </ul>
+            </li>          
+            <li  class="treeview">
+              <a href="javascript: void(0);">
+                <i class="las la-cog pr-2"></i>
+                        <span>Setting</span>
+                        <i class="fa fa-angle-right pull-right"></i>
+                
+              </a>
+              <ul class="treeview-menu">
+                <li><a [routerLink]="['/super-admin/banner-setting']">Home Page Banner</a></li>
+                <li><a [routerLink]="['/super-admin/change-password']"> Change Password</a></li>
                
               </ul>
             </li>

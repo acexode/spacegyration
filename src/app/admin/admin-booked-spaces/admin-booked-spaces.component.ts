@@ -13,15 +13,17 @@ export class AdminBookedSpacesComponent implements OnInit {
   spaces
   user
   booked = false;
+  isloaded = false
   constructor(private dispatcher: DispatcherService, private flashMessage: FlashMessagesService) { }
 
   ngOnInit(): void {
+    this.isloaded = true
     this.dispatcher.bookedSPaces().subscribe((data : any) =>{
       console.log(data)
       this.spaces = data.spaces
       this.user = data.user
       this.booked = true
-      
+      this.isloaded = false
     })
   }
   calcDuration(end){

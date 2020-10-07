@@ -114,7 +114,7 @@
         <div class="dropdown-menu">
           <a class="dropdown-item" 
           *ngIf="isLoggedIn"
-          routerLink="/user"
+          (click)="gotoProfile()"
           data-effect="mfp-zoom-in"           
           >My Profile</a>
           <a class="dropdown-item" class="dropdown-item" 

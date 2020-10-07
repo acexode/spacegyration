@@ -13,16 +13,22 @@ export class AdminBookedHistoryComponent implements OnInit {
   spaces
   user
   booked = false;
+  isloaded = false
   constructor(private dispatcher: DispatcherService, private flashMessage: FlashMessagesService) { }
 
   ngOnInit(): void {
-    this.dispatcher.getUserData().subscribe((data : any) =>{
-      console.log(data)
-      this.spaces = data.space
-      this.user = data.user
-      this.booked = true
-      
-    })
+    this.isloaded = true
+    setTimeout(()=>{
+      this.dispatcher.getUserData().subscribe((data : any) =>{
+        console.log(data)
+        this.spaces = data.space
+        this.user = data.user
+        this.booked = true
+        this.isloaded = false
+        
+      })
+
+    },1000)
   }
   calcDuration(start, end){
     console.log()

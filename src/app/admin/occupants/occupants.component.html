@@ -14,39 +14,24 @@
         </div>
         <!-- end page title -->
 
-        <div class="row justify-content-center px-3">
-            <div class="col-md-9 px-5">
-                <div *ngFor="let space of spaces" class="row card py-3">
-                    <div class="col-md-12 ">
-                        <div class="row">                          
-                           
-                            <div class="col-8">
-                                <div class="d-flex">
-                                    <div class="avater-container">
-                                        <img class="rounded-circle avater" style="width: 40px;" src="https://image.flaticon.com/icons/svg/929/929422.svg" alt="">
-                                   
-                                    </div>
-                                    <div>
-                                        <p class="pt-3 pl-4 p-detail mb-0 text-dark">{{space.bookings[0].user.username}}</p>
-                                        <span class="pt-4 pl-4  text-dark">{{space.details.title}}</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                           
-                           
-                            <div class="col-2 ml-5">
-                                <button  class="btn btn-primary view-btn text-light py-2 px-5 ">View</button>
-
-                            </div>
-                        </div>
-                    </div>                                                                            
+                
+                <div *ngFor="let space of spaces" class=" row card py-1">
                    
-                </div>     
-            </div>
-           
+                        <div class="col-12 d-flex ">                            
+                                <div class="avater-container">
+                                    <img class="rounded-circle avater" style="width: 40px;" src="https://image.flaticon.com/icons/svg/929/929422.svg" alt="">
+                               
+                                </div>
+                                <div class="mr-auto pr-4 flex-grow-1">
+                                    <p class="pt-3 pl-4 p-detail mb-0 text-dark">{{space.bookings[0].user.username}}</p>
+                                    <span class="pt-4 pl-4  text-dark">{{space.details.title}}</span>
+                                </div>
+                                <button  class="btn btn-primary view-btn text-light view-btn">View</button>
+                        </div>
+                       
+                        <div class="col-4 ">
 
-           
+                        </div>
         </div>
         
         <!-- end row -->

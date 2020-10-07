@@ -1,5 +1,5 @@
 <div class="page-content">
-    <div class="container-fluid mt-5">
+    <div class="container-fluid ">
 
         <!-- start page title -->
         <div class="row ">
@@ -20,17 +20,15 @@
         <!-- end page title -->
 
         <div class="row px-3">
-            <div class="col-md-8 px-5">
-                <div class="row"> 
-                    <div  class="col-md-12">
+            <div class="col-md-8">                
                         <div class="card">
                             <div class="card-body">
-                                <div class="media">
-                                    <div class="media-body overflow-hidden">                                                        
+                                <div class="row media">
+                                    <div class="media-body overflow-hidden col-4">                                                        
                                         <img style="width: 70px;" src="https://image.freepik.com/free-vector/isolated-isometric-office-composition-workplace-with-desk-monitor-chair-table-vector-illustration_1284-30906.jpg" alt="">
                                     </div>
-                                    <div class="text-secondary">                                                        
-                                        <h5 class="mx-3">Total spaces occupied</h5>
+                                    <div class="text-secondary col-8">                                                        
+                                        <h5 class="mx-3 total-space">Total spaces occupied</h5>
                                         <a class="d-flex mx-3 ">
                                             <h6 class="pr-2"><strong>04</strong></h6>  <h6><u>View More</u></h6>
 
@@ -39,26 +37,31 @@
                                     </div>
                                 </div>
                             </div>                                           
-                        </div>
+                        
                     </div>
-                    <div  class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="media">
-                                    <div class="media-body overflow-hidden">                                                        
-                                        <h6 class="pt-2 mb-0">Earned History</h6>
-                                    </div>
-                                    <a class="text-secondary mx-4">                                                                                                        
-                                        <p>Yearly</p>
-                                    </a>
-                                    <a class="text-primary">                                                                                                        
-                                        <p>Monthly</p>
-                                    </a>
-                                </div>
-                            </div>                                           
-                        </div>
-                    </div>  
-                </div>                               
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item earnings">
+                                  <a class="nav-link active" id="earned-history-tab" data-toggle="pill" href="#earned-history" role="tab" aria-controls="earned-history" aria-selected="true">Earned History</a>
+                                </li>
+                                <li class="nav-item earnings">
+                                  <a class="nav-link" id="yearly-tab" data-toggle="pill" href="#yearly" role="tab" aria-controls="yearly" aria-selected="false">Yearly</a>
+                                </li>
+                                <li class="nav-item earnings">
+                                  <a class="nav-link" id="monthly-tab" data-toggle="pill" href="#monthly" role="tab" aria-controls="monthly" aria-selected="false">Monthly</a>
+                                </li>
+                              </ul>
+                              <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="earned-history" role="tabpanel" aria-labelledby="earned-history-tab">...</div>
+                                <div class="tab-pane fade" id="yearly" role="tabpanel" aria-labelledby="yearly-tab">...</div>
+                                <div class="tab-pane fade" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">...</div>
+                              </div>
+                      
+                        </div>                                           
+                    </div>
+                      
+                                             
             </div>
             <div class="col-md-4">
                 <div class="card">

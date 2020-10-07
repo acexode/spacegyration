@@ -13,8 +13,8 @@
         <!-- end page title -->
 
         <div class="row justify-content-center px-5">
-            <div class="col-md-12 px-5">
-                <div class="card px-5">
+            <div class="col-md-12">
+                <div class="card">
                     <div class="card-body"> 
                         <form [formGroup]="spaceForm" (ngSubmit)="submitForm()" class="addspace" >
                             <div class="row">
@@ -43,7 +43,7 @@
                                   
                                 </div>
         
-                                <div class="col-lg-6">
+                                <div class="col-md-6">
                                     <div class="form-group mt-2 " >   
                                         <label for="">Type</label>                                                      
                                         <select (change)="onChange($event)" formControlName="type" class="form-control  ">
@@ -53,7 +53,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-md-6">
                                     <div class="form-group mt-2 " >
                                         <label for="">Category</label>                                                       
                                         <select (change)="onChangeCategory($event)"  formControlName="category" class="form-control  ">
@@ -63,7 +63,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-md-6">
                                     <div class="form-group mt-2" >
                                         <label for="">Size</label> 
                                         <input class="form-control" placeholder="Space size on square meters" formControlName="size" type="text"> 
@@ -83,7 +83,7 @@
                                        <input class="form-control" placeholder="Street Address" formControlName="address" type="text"> 
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-md-6">
                                     <div class="form-group mt-2 " >  
                                         <label for="">State</label>                                                      
                                         <select formControlName="state" class="form-control  ">
@@ -93,7 +93,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-md-6">
                                     <div class="form-group mt-2 " >   
                                         <label for="">City</label>                                                     
                                         <select formControlName="city" class="form-control  ">
@@ -103,13 +103,13 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-md-6">
                                     <div class="form-group mt-2" >
                                         <label for="">Price</label> 
                                         <input class="form-control" placeholder="Price" formControlName="price" type="text"> 
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-md-6">
                                     <label for="">Discount %</label> 
                                     <div class="form-group mt-2" >
                                         <input class="form-control" placeholder="Discount" formControlName="discount" type="text"> 
@@ -127,7 +127,7 @@
                                         <label for=""><b>Select available facilities/features</b></label>
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-4" *ngFor="let data of amenities;let i=index">
+                                        <div class="col-md-4" *ngFor="let data of amenities;let i=index">
                                             <div class="custom-control custom-radio mb-3">
                                                 <input type="checkbox" [value]="data.value" id={{data.value}}  (change)="onCheckboxChange($event)"  class="custom-control-input">                                                                   
                                                 <label class="custom-control-label" for={{data.value}}>{{data.name}}</label>

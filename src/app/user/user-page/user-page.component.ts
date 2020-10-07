@@ -7,9 +7,12 @@ declare const $: any;
 })
 export class UserPageComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
+    
   }
 
 }

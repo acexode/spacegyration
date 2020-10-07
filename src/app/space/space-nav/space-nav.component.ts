@@ -17,8 +17,17 @@ export class SpaceNavComponent implements OnInit {
   goto(e, title =''){   
     console.log(e)
     this.router.navigate(['space/' + e]);
-    
-
+  }
+  gotoProfile(){
+    const token = localStorage.getItem('token');
+    let user = this.dispatcher.helper.decodeToken(token)
+    if(user.role == 'user'){
+      this.router.navigate(['/user'])
+    }else if(user.role == 'admin'){
+      this.router.navigate(['/admin'])
+    }else if(user.role == 'super-admin'){
+      this.router.navigate(['/super-admin'])
+    }    
   }
   logout(){
     localStorage.clear();

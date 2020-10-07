@@ -10,12 +10,15 @@ import { DispatcherService } from 'src/app/dispatcher.service';
 export class AvailableSpacesComponent implements OnInit {
   spaces 
   p: number = 1; 
+  isloaded = false
   constructor(private dispatcher: DispatcherService) { }
 
   ngOnInit(): void {
+    this.isloaded = true
     this.dispatcher.getOwnerSpaces().subscribe((data:any)=>{
       console.log(data)
       this.spaces = data.spaces
+      this.isloaded = false
     })
   }
 

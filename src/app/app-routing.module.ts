@@ -1,3 +1,9 @@
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+
+import { SuperAdminGuard } from './super-admin.guard';
+import { AdminGuard } from './admin.guard';
+import { UserGuard } from './user.guard';
+import { BannerSettingsComponent } from './admin/banner-settings/banner-settings.component';
 import { OccupantsComponent } from './admin/occupants/occupants.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
 import { AdminBookedSpacesComponent } from './admin/admin-booked-spaces/admin-booked-spaces.component';
@@ -31,13 +37,20 @@ export const routes: Routes = [
     redirectTo: 'space',
     pathMatch: 'full'
   }, 
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+    
+  }, 
   {    
     path: 'user',  
     component: UserPageComponent,
+    canActivate: [UserGuard],    
     children : [
       {
-         path: '',
-         component: UserDashboardComponent
+         path: '',         
+         redirectTo: 'user-dashboard',
+         pathMatch: 'full'
        },
       {
          path: 'user-dashboard',
@@ -64,6 +77,7 @@ export const routes: Routes = [
   {    
     path: 'admin',  
     component: AdminHomeComponent,
+    canActivate: [AdminGuard],
     children : [
       {
          path: '',
@@ -88,6 +102,49 @@ export const routes: Routes = [
       {
          path: 'account-setting',
          component: AdminAccountSettingsComponent
+       },
+      {
+         path: 'booked-history',
+         component: AdminBookedHistoryComponent
+       },
+      {
+         path: 'booked-spaces',
+         component: AdminBookedSpacesComponent
+       },
+      {
+         path: 'change-password',
+         component: AdminChangePasswordComponent
+       },
+      ]
+  },
+  {    
+    path: 'super-admin',  
+    component: AdminHomeComponent,
+    canActivate: [SuperAdminGuard],
+    children : [
+      {
+         path: '',
+         component: AdminDashboardComponent
+       },
+      {
+         path: 'admin-dashboard',
+         component: AdminDashboardComponent
+       },
+      {
+         path: 'available-spaces',
+         component: AvailableSpacesComponent 
+       },
+      {
+         path: 'occupants',
+         component: OccupantsComponent
+       },
+      {
+         path: 'add-space',
+         component: AddSpaceComponent
+       },
+      {
+         path: 'banner-setting',
+         component: BannerSettingsComponent
        },
       {
          path: 'booked-history',

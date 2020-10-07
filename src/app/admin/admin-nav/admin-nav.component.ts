@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-nav',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-nav.component.css','../admin-home/admin-home.component.css']
 })
 export class AdminNavComponent implements OnInit {
-
-  constructor() { }
+  super_admin = false
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    if(this.router.url.includes('super')){
+      this.super_admin = true
+    }
   }
 
 }

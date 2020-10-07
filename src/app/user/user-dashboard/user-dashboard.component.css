@@ -1,0 +1,17 @@
+.earnings a{
+    color: #6c757d
+}
+.earnings .nav-link.active{
+    color: #007bff;
+    background: transparent;
+    
+}
+.total-space{
+
+}
+@media (max-width: 450px) {
+    .total-space {
+      font-size: .8rem;
+    }
+    
+  }

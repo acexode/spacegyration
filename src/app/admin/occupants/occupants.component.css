@@ -9,6 +9,8 @@
 
 .view-btn{
     margin-top: .7em;
+    margin-bottom: .7em;
     border-radius: 20px;
+    width: 100px;;
     font-size: medium;
 }

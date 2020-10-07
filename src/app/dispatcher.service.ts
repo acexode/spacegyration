@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
 import * as moment from 'moment-timezone';
 import { JwtHelperService } from "@auth0/angular-jwt";
-
+declare var $: any;
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 export class DispatcherService {
   httpOptions
   base_url = 'http://localhost:4300'
-  helper = new JwtHelperService();
+  public helper = new JwtHelperService();
   constructor(private http: HttpClient) {
     this.httpOptions = {
       headers: new HttpHeaders({ 'Authorization': localStorage.getItem('token') })
@@ -36,7 +36,7 @@ export class DispatcherService {
   }
 
   // forgot passsword
-  forgot(user) {
+  forgotPassword(user) {
     return this.http.post(`${this.base_url}/api/forgot_password`, user);
   }
   updateUser(user){
@@ -142,6 +142,8 @@ export class DispatcherService {
   isLoggedIn() {
     const token = localStorage.getItem('token');
     let isExpired = this.helper.isTokenExpired(token);
+    console.log(this.helper.decodeToken(token))
+    console.log(isExpired)
     if (isExpired) {
       console.log('expired')
       return true;
@@ -218,6 +220,20 @@ bookSpace(data, prevBooking) {
 
 
 
+}
+// new banner
+newBanner(banner) {
+  return this.http.post(`${this.base_url}/api/banner`, banner);
+}
+// new banner
+getBanners() {
+  return this.http.get(`${this.base_url}/api/banners`);
+}
+removeBanners(id) {
+  return  this.http.delete(`${this.base_url}/api/banner/` + id);
+}
+showModal():void { 
+  $("#signupLogin").modal('toggle');
 }
 }
 

@@ -44,6 +44,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { Ng5SliderModule } from 'ng5-slider';
 import { SpaceTitleComponent } from './space/space-title/space-title.component';
 import { SpaceCardsComponent } from './space/space-cards/space-cards.component';
+import { BannerSettingsComponent } from './admin/banner-settings/banner-settings.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,7 @@ import { SpaceCardsComponent } from './space/space-cards/space-cards.component';
     AdminBookedHistoryComponent,
      AdminBookedSpacesComponent, 
      AdminAccountSettingsComponent, 
-     AdminChangePasswordComponent, SpaceTitleComponent, SpaceCardsComponent, SuperAdminComponent,     
+     AdminChangePasswordComponent, SpaceTitleComponent, SpaceCardsComponent, SuperAdminComponent, BannerSettingsComponent, ForgotPasswordComponent,     
   ],
   imports: [
     BrowserModule,

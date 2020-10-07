@@ -14,7 +14,7 @@
         </div>
         <!-- end page title -->
 
-        <div class="row px-3">
+        <div class="row">
             <div class="col-12 text-center">
                 <div *ngIf="isloaded" class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
                     <span class="sr-only">Loading...</span>
@@ -22,15 +22,15 @@
                </div>
             <div *ngIf="!isloaded" class="col-md-12 px-5">
                 <div *ngFor="let space of spaces" class="row card card-list ">
-                    <div class="col-md-11  card-list-left ">
+                    <div class="col-md-10  card-list-left ">
                         <div class="d-flex justify-content-between">
                             <div class="row">
-                                 <img style="width: 70px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS-ohtFViD0xjYloizfv_z3dwh8EEP2eDmqSg&usqp=CAU" alt="">
-                                 <p class="pt-4 pl-3 p-detail">{{space.details.title}}</p></div>
-                             <p class=" pt-4 p-detail">N{{space.details.price}}</p>
+                                <img style="width: 70px;" src={{space.details.img[0]}} alt="">
+                                <p class="pt-4 pl-3 p-detail">{{space.details.title}}</p></div>
+                                <p class=" pt-4 p-detail">N{{space.details.price}}</p>
                          </div>
                     </div>                                                                            
-                    <a class="col-md-1  pt-4 text-center h5 text-light">View</a>
+                    <a class="col-md-2  pt-4 text-center h6 text-light">View</a>
                 </div>     
             </div>
            
