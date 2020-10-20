@@ -5,18 +5,46 @@
         <div class="row mt-5">
             <div class="col-12 mt-5">
                 <div class="page-title-box d-flex  justify-content-center">
-                    <h4 class="mt-2 text-center">Home Page Banner</h4>
+                    <h4 class="mt-2 text-center">Home Page Banners</h4>
 
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center mt-5 " >
+            
+            <section class=" header-banner banner">
+                <img
+                  src={{banner?.banner}}
+                  alt="Event space and event venue rental Nigeria"
+                  title="Rent the best event spaces and event venues in Nigeria"
+                  style="
+                    position: absolute;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    object-fit: cover;
+                  "
+                />
+                <div class="container text-center">
+                    <h3 class="main-tagline mb-1 text-center">
+                      {{banner?.heading}}
+                    </h3>
+                    <span class=" yborder"></span>
+                    <span class="intro-desc text-center">
+                        {{banner?.subtext}}</span>
+                  </div>
+              </section>
+              
+           
+        </div>
         <!-- end page title -->
-
+        
         <div class="row justify-content-center my-5 ">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-body"> 
-                        <form [formGroup]="bannerForm" (ngSubmit)="submitForm()" class="addspace row" >
+                        <form [formGroup]="BannerForm" (ngSubmit)="submitForm('banner')" class="addspace row" >
                             <div class="col-md-12 mb-3">                                                  
                                   
                                     <ngx-dropzone (change)="onSelect($event)">
@@ -61,28 +89,76 @@
 
            
         </div>
-        <div class="row ">
-            <div class="col-12 text-center">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h4>Add/Remove Other Ad Banners</h4>
+            </div>            
+            <div class="col-md-10 text-center">
+               <div class="card mb-5">
+                <div class="card-body"> 
+                    <form [formGroup]="AdvertForm" (ngSubmit)="submitForm('advert')" class="addspace row" >
+                        <div class="col-md-12 mb-3">                                                  
+                              
+                                <ngx-dropzone (change)="onSelect($event)">
+                                    <ngx-dropzone-label>
+                                        <div class="mb-1">
+                                            <i class="fa fa-cloud-upload display-4 text-muted"></i>
+                                        </div>                                                                
+                                        <h4>Upload Images</h4>
+                                        <small>Drag and drop or click here</small>
+                                    </ngx-dropzone-label>
+                                    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                    </ngx-dropzone-preview>
+                                  </ngx-dropzone>
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mt-2" >                                    
+                                <input class="form-control" placeholder="Name" formControlName="name" type="text"> 
+                            </div>
+                        </div>
+                        <div class="col-md-6" >
+                            <div class="form-group mt-2" >                                     
+                               <input class="form-control" placeholder="Advert Owner" formControlName="owner" type="text">                                                       
+                               
+                            </div>
+                          
+                        </div>
+                        <div class="col-12">
+                            <div class="form-row d-flex justify-content-end my-2 mr-1" >
+                                <button class="btn btn-primary">Add</button>
+                            </div>
+
+                        </div>
+                       
+                    </form>
+    
+                </div>
+            </div>
+            <div class="col-md-10 text-center">
                 <div *ngIf="isloaded" class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
                     <span class="sr-only">Loading...</span>
                   </div>
                </div>
-            <div  class="col-md-12 ">
-                <div *ngFor="let banner of BannerList" class="row card card-list ">
+
+            </div>
+            <div  class="col-md-10 mb-5">
+                <div *ngFor="let advert of AdvertLists" class="row card card-list ">
                     <div class="col-md-10  card-list-left pb-4 ">
                         <div class="d-flex justify-content-between">
                             <div class="row">
-                                <img style="width: 70px;" src={{banner.banner}} alt="">
+                                <img style="width: 70px;" src={{advert.image}} alt="">
                                 <div class="d-flex flex-column">
-                                    <p class=" pt-2 pl-3 p-detail mb-0">{{banner.heading}}</p>
-                                    <span class=" pl-3 ">{{banner.subtext}}</span>
+                                    <p class=" pt-2 pl-3 p-detail mb-0">{{advert.name}}</p>
+                                    <span class=" pl-3 ">{{advert.owner}}</span>
 
                                 </div>
                                 </div>
-                                <p class=" pt-3 p-detail">{{banner.createdAt | date}}</p>
+                                <p class=" pt-3 p-detail">{{advert.createdAt | date}}</p>
                          </div>
                     </div>                                                                            
-                    <a (click)="removeBanner(banner._id)" class="col-md-2 pt-4 text-center h6 text-light">Remove</a>
+                    <a (click)="removeAdvert(advert._id)" class="col-md-2 pt-4 text-center h6 text-light">Remove</a>
                 </div>     
             </div>
            

@@ -25,11 +25,9 @@ import { SpaceLandingComponent } from './space/space-landing/space-landing.compo
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { EventSpaceComponent } from './space/event-space/event-space.component';
-import { OfficeSpaceComponent } from './space/office-space/office-space.component';
-import { FunplacesComponent } from './space/funplaces/funplaces.component';
 import { BookingComponent } from './space/booking/booking.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +38,11 @@ export const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent,
+    
+  }, 
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent,
     
   }, 
   {    
@@ -178,63 +181,63 @@ export const routes: Routes = [
          children : [
            {
              path: 'restaurant',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'pub',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'bar',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'coffee',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'movies',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'concert',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'boat ride',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'library',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'receptions',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'club',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'table',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'meetups',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'bonfire',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'barbecue',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
            {
              path: 'stargazing',
-             component: FunplacesComponent
+             component: BedSpaceComponent
            },
          ]
        },
@@ -243,22 +246,22 @@ export const routes: Routes = [
          children : [
            {
              path: 'private',
-             component: OfficeSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'shared',
-             component: OfficeSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'co-working',
-             component: OfficeSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'open',
-             component: OfficeSpaceComponent
+             component: BedSpaceComponent
            },
          ]
-         // component: OfficeSpaceComponent
+         // component: BedSpaceComponent
        },
        {
          path: 'search',
@@ -298,67 +301,67 @@ export const routes: Routes = [
          children : [
            {
              path: 'picnics',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'meeting',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'trainings',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'private meeting',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'board meeting',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'group meeting',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'reception',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'conference',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'seminars',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'birthdays',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'political gathering',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'social',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'weddings',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'parties',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'meetups',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
            {
              path: 'lectures',
-             component: EventSpaceComponent
+             component: BedSpaceComponent
            },
          ]
        }

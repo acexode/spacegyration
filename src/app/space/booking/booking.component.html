@@ -33,14 +33,14 @@
               ></i>
               Photos</a
             >
-            <a class="locate-btn"
+            <!-- <a href="#location" class="locate-btn"
               ><i
                
                 aria-hidden="true"
                 class="fa fa-map-marker"
               ></i>
               Location</a
-            >
+            > -->
           </div>
           <div class="row profile-container">
             <div class="col-sm-8">
@@ -53,7 +53,7 @@
                       aria-hidden="true"
                       class="fa fa-location-arrow"
                     ></i>
-                    {{spaceData.details.location}}
+                    {{spaceData.details.address}}
                   </p>
                   <p>
                     <i
@@ -106,7 +106,7 @@
                     <div                     
                       role="tabpanel"
                       id="book"
-                      class="tab-pane fade active in"
+                      class="tab-pane  active "
                     >
                       <h3>
                         Book Space for &nbsp;<span> ₦{{spacePrice + services}} </span>
@@ -137,12 +137,12 @@
                     <label for="recurringDate"><small>Date</small></label>
                     <ng2-flatpickr  #srecurringDatePicker [config]="recurringOption" formControlName="recurringDate"></ng2-flatpickr>                    
                   </div> 
-                  <button type="submit" class=" enquiry-btn w-100 d-flex">
+                  <button type="submit" class=" enquiry-btn w-100 ">
                     <i class="fa fa-building-o"></i>
                     Book
                   </button>                 
               </form>
-                <div class="trigger-enquiry">
+                <!-- <div class="trigger-enquiry">
                   <p class="text-center">OR</p>
                   <a class="btn btn-block btn-info"
                     ><i
@@ -160,8 +160,8 @@
                   <a
                     ><p>Show contact number</p></a
                   >
-                </div>
-                <div class="venue-info">
+                </div> -->
+                <!-- <div class="venue-info">
                   <div class="venue-info-content">
                     <a
                      
@@ -174,11 +174,11 @@
                           background-image: url('https://lifthub.org/images/160290cdb0652b0525e8191290986af1.png');
                         "
                       ></div>
-                      <h5>This space is hosted by</h5>
+                      <h6>This space is hosted by</h6>
                       <h4>Lifthub</h4></a
                     >
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -186,9 +186,9 @@
           
           <h6>Location</h6>
           <a id="locate-map"></a>
-          <ul class="map-container">
-            <p>52B Temple Street</p>
-            <p>Nigeria 058597</p>
+          <ul id="location" class="map-container">
+            <!-- <p>52B Temple Street</p>
+            <p>Nigeria 058597</p> -->
             <div class="map-container">
               <a
                 href="http://maps.google.com/?q=1.283326,103.84361000000001"

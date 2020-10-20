@@ -13,10 +13,8 @@ import { SpaceFooterComponent } from './space/space-footer/space-footer.componen
 import { SpaceLandingComponent } from './space/space-landing/space-landing.component';
 import { SignupLoginComponent } from './auth/signup-login/signup-login.component';
 import { BedSpaceComponent } from './space/bed-space/bed-space.component';
-import { ConferenceSpaceComponent } from './space/conference-space/conference-space.component';
-import { EventSpaceComponent } from './space/event-space/event-space.component';
-import { OfficeSpaceComponent } from './space/office-space/office-space.component';
-import { FunplacesComponent } from './space/funplaces/funplaces.component';
+
+
 import { SearchresultComponent } from './space/searchresult/searchresult.component';
 import { BookingComponent } from './space/booking/booking.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -46,6 +44,7 @@ import { SpaceTitleComponent } from './space/space-title/space-title.component';
 import { SpaceCardsComponent } from './space/space-cards/space-cards.component';
 import { BannerSettingsComponent } from './admin/banner-settings/banner-settings.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -55,11 +54,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
     SpaceFooterComponent,
     SpaceLandingComponent,
     SignupLoginComponent,
-    BedSpaceComponent,
-    ConferenceSpaceComponent,
-    EventSpaceComponent,
-    OfficeSpaceComponent,
-    FunplacesComponent,
+    BedSpaceComponent,    
     SearchresultComponent,
     BookingComponent,
     UserDashboardComponent,    
@@ -78,7 +73,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
     AdminBookedHistoryComponent,
      AdminBookedSpacesComponent, 
      AdminAccountSettingsComponent, 
-     AdminChangePasswordComponent, SpaceTitleComponent, SpaceCardsComponent, SuperAdminComponent, BannerSettingsComponent, ForgotPasswordComponent,     
+     AdminChangePasswordComponent, SpaceTitleComponent, SpaceCardsComponent, SuperAdminComponent, BannerSettingsComponent, ForgotPasswordComponent, ResetPasswordComponent,     
   ],
   imports: [
     BrowserModule,

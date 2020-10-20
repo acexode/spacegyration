@@ -21,17 +21,14 @@ export class BookingComponent implements OnInit {
   @ViewChild('endPicker') pickerEnd;
   @ViewChild('recurringDatePicker') recurringDatePicker;
   success = false;
-  disabledSubmitButton = true;
-  options = {
-    minDate: new Date()
-  };
+  disabledSubmitButton = true; 
   DAY = 86400000;
   form: FormGroup;
   checkinOptions: FlatpickrOptions = {
     enableTime: true,
     altInputClass: 'date-picker',    
     dateFormat: 'd.m.Y',
-    defaultDate: new Date(),    
+    // defaultDate: new Date(),    
   };
 
   checkoutOptions: FlatpickrOptions = { 
@@ -122,7 +119,7 @@ export class BookingComponent implements OnInit {
     this.dispatcher.getSingle(id).subscribe((data: any) => {
       this.spaceData = data.space;
       this.spacePrice = data.space.details.price
-      console.log(data.space.assets)
+      console.log(data)
       let amenities = []
       let services = []
       for (const property in this.spaceData.assets) {

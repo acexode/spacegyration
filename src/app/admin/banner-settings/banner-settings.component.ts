@@ -11,20 +11,34 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class BannerSettingsComponent implements OnInit {
 
   files: File[] = [];  
-  bannerForm: FormGroup;  
+  AdvertForm: FormGroup;  
+  BannerForm: FormGroup;  
   submitted = false; 
-  BannerList = []
+  banner = null; 
+  AdvertLists = []
   isloaded = false
   disabledSubmitButton: boolean = true
+  disabledBannerSubmitButton: boolean = true
  
   
   @HostListener('input') oninput() {
-    if (this.bannerForm.valid) {
-      this.disabledSubmitButton = false;
+    // if (this.AdvertForm.valid) {
+    //   this.disabledSubmitButton = false;
+    // }
+    if (this.BannerForm.valid) {
+      this.disabledBannerSubmitButton = false;
     }
 }
   constructor(private formBuilder: FormBuilder,private dispatcher: DispatcherService,private flashMessage: FlashMessagesService) { 
-    this.bannerForm = this.formBuilder.group({
+    this.AdvertForm = this.formBuilder.group({
+      image: [[], Validators.required],
+      name: ['', Validators.required],
+      owner: ['', Validators.required],
+
+      
+    });
+    
+    this.BannerForm = this.formBuilder.group({
       banner: [[], Validators.required],
       heading: ['', Validators.required],
       subtext: ['', Validators.required],
@@ -35,20 +49,29 @@ export class BannerSettingsComponent implements OnInit {
   }
 
 ngOnInit() {
-  this.getBanners()
+  this.getAdverts();
+  this.getBanner()
 }
-getBanners(){
+getAdverts(){
   this.isloaded = true
-  this.dispatcher.getBanners().subscribe((data:any) => {
+  this.dispatcher.getAdverts().subscribe((data:any) => {
     console.log(data)
-    this.BannerList = data.banners
+    this.AdvertLists = data.adverts
     this.isloaded = false
   })
 }
-removeBanner(id){
+getBanner(){
+  this.isloaded = true
+  this.dispatcher.getBanner().subscribe((data:any) => {
+    console.log(data)
+     this.banner = data.banners
+    this.isloaded = false
+  })
+}
+removeAdvert(id){
   console.log(id)
-  this.dispatcher.removeBanners(id).subscribe(e =>{
-    this.BannerList = this.BannerList.filter(e => e._id != id)
+  this.dispatcher.removeAdverts(id).subscribe(e =>{
+    this.AdvertLists = this.AdvertLists.filter(e => e._id != id)
   })
 }
 onSelect(event) {
@@ -60,7 +83,7 @@ onSelect(event) {
   for (var i = 0; i < this.files.length; i++) { 
     formData.append("file[]", this.files[i]);
   }
-  this.bannerForm.patchValue({
+  this.AdvertForm.patchValue({
     banner: formData
   })
 
@@ -68,17 +91,17 @@ onSelect(event) {
 }
 
 onChangeCategory(e){
-  // this.bannerForm.get('category').setValue(e.target.value)
+  // this.AdvertForm.get('category').setValue(e.target.value)
 }
 get spaceType() {
-  return this.bannerForm.get('type');
+  return this.AdvertForm.get('type');
 }
 get category() {
-  return this.bannerForm.get('category');
+  return this.AdvertForm.get('category');
 }
-  get f() { return this.bannerForm.controls; }
+  get f() { return this.AdvertForm.controls; }
   onCheckboxChange(e) {
-    const checkArray: FormArray = this.bannerForm.get('checkArray') as FormArray;
+    const checkArray: FormArray = this.AdvertForm.get('checkArray') as FormArray;
     console.log(checkArray.value)
     console.log(e.target.checked)
     if (e.target.checked) {
@@ -99,31 +122,50 @@ onRemove(event) {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
 }
-  submitForm(){    
-    console.log(this.files)
+  submitForm(type){    
+    console.log(type)    
     const formData = new FormData();   
     for (var i = 0; i < this.files.length; i++) {
         formData.append("uploads", this.files[i], this.files[i].name);
     }    
     this.dispatcher.uploadImage( formData)
-    .subscribe((res : any) => {          
-       console.log(res.images);       
-       let bannerData = {...this.bannerForm.value}       
-       console.log(bannerData)      
-        // delete bannerData.checkArray
-        bannerData.banner = res.images[0]
-          console.log(bannerData);
-        this.dispatcher.newBanner(bannerData).subscribe(res =>{
-          // this.successMsg()
-          alert('Banner Saved')
-          console.log(res)
-          this.bannerForm.reset()
-          this.files = []
-          this.getBanners()
-        }, error =>{
-          this.errMsg(error)
-          console.log(res)
-        })
+    .subscribe((res : any) => {   
+          console.log(formData);
+          if(type == 'banner'){
+            console.log(res.images);       
+            let formData = {...this.BannerForm.value}       
+            console.log(formData)      
+             // delete formData.checkArray
+             formData.banner = res.images[0]
+            this.dispatcher.newBanner(formData).subscribe(res =>{
+              // this.successMsg()
+              alert('Banner Saved')
+              console.log(res)
+              this.BannerForm.reset()
+              this.files = []
+              this.getBanner()
+            }, error =>{
+              this.errMsg(error)
+              console.log(res)
+            })
+          }else if(type == 'advert'){
+            console.log(res.images);       
+            let formData = {...this.AdvertForm.value}       
+            console.log(formData)      
+             // delete formData.checkArray
+             formData.image = res.images[0]
+            this.dispatcher.newAdvert(formData).subscribe(res =>{
+              // this.successMsg()
+              alert('Advert Saved')
+              console.log(res)
+              this.AdvertForm.reset()
+              this.files = []
+              this.getAdverts()
+            }, error =>{
+              this.errMsg(error)
+              console.log(res)
+            })
+          }
     })   
 
 }

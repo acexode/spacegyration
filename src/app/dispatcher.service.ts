@@ -10,6 +10,7 @@ declare var $: any;
 export class DispatcherService {
   httpOptions
   base_url = 'http://localhost:4300'
+  client_url = 'http://localhost:4200'
   public helper = new JwtHelperService();
   constructor(private http: HttpClient) {
     this.httpOptions = {
@@ -37,14 +38,16 @@ export class DispatcherService {
 
   // forgot passsword
   forgotPassword(user) {
+    console.log(user)
+    user.path = this.client_url
     return this.http.post(`${this.base_url}/api/forgot_password`, user);
   }
   updateUser(user){
     return this.http.put(`${this.base_url}/api/update-profile`,user, this.httpOptions)
   }
   // reset passsword
-  resetPassword(user) {
-    return this.http.post(`${this.base_url}/api/reset_password`, user);
+  resetPassword(pwd) {
+    return this.http.post(`${this.base_url}/api/reset_password`, pwd);
   }
 
   // subscribe to newsletter
@@ -221,16 +224,27 @@ bookSpace(data, prevBooking) {
 
 
 }
-// new banner
+// new Advert
 newBanner(banner) {
   return this.http.post(`${this.base_url}/api/banner`, banner);
 }
-// new banner
-getBanners() {
-  return this.http.get(`${this.base_url}/api/banners`);
+getBanner() {
+  console.log('banners')
+  return this.http.get(`${this.base_url}/api/banner`);
 }
-removeBanners(id) {
-  return  this.http.delete(`${this.base_url}/api/banner/` + id);
+updateBanner(banner) {
+  return this.http.put(`${this.base_url}/api/banner${banner._id}`, banner);
+}
+// new Advert
+newAdvert(Advert) {
+  return this.http.post(`${this.base_url}/api/advert`, Advert);
+}
+// new Advert
+getAdverts() {
+  return this.http.get(`${this.base_url}/api/adverts`);
+}
+removeAdverts(id) {
+  return  this.http.delete(`${this.base_url}/api/advert/` + id);
 }
 showModal():void { 
   $("#signupLogin").modal('toggle');
