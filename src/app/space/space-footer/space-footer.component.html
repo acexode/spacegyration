@@ -25,7 +25,7 @@
       
                 <ul class="list-unstyled">
                   <li *ngFor="let item of Company">
-                    <a class='font-small' href="#!">{{item}}</a>
+                    <a class='font-small' href={{item.url}}>{{item.title}}</a>
                   </li>               
                 </ul>
       
@@ -42,7 +42,7 @@
       
                 <ul class="list-unstyled">
                   <li *ngFor="let item of qLink">
-                    <a class='font-small' href="#!">{{item}}</a>
+                    <a class='font-small' href={{item.url}}>{{item.title}}</a>
                   </li>               
                   
                 </ul>
@@ -60,7 +60,7 @@
       
                 <ul class="list-unstyled">
                   <li *ngFor="let item of gInfo">
-                    <a class='font-small' href="#!">{{item}}</a>
+                    <a class='font-small' href={{item.url}}>{{item.title}}</a>
                   </li>   
                   
                 </ul>
@@ -107,4 +107,5 @@
         <!-- Copyright -->
     
       </footer>
-      <!-- Footer -->
+      <!-- Footer --> 
+      

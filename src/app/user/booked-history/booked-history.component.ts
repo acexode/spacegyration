@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DispatcherService } from 'src/app/dispatcher.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import * as moment from 'moment'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-booked-history',
   templateUrl: './booked-history.component.html',
@@ -14,7 +15,7 @@ export class BookedHistoryComponent implements OnInit {
   user
   booked = false;
   isloaded = false
-  constructor(private dispatcher: DispatcherService, private flashMessage: FlashMessagesService) { }
+  constructor(private dispatcher: DispatcherService, private flashMessage: FlashMessagesService,private router: Router) { }
 
   ngOnInit(): void {
     this.isloaded = true
@@ -47,6 +48,10 @@ export class BookedHistoryComponent implements OnInit {
   }
   toDateString(date){
     return new Date(date).toLocaleDateString()
+  }
+  gotoBook(index) {
+    console.log(index);   
+    this.router.navigate(['space/booking', { data: index }]);
   }
 
 }

@@ -9,9 +9,38 @@ import { Router } from '@angular/router';
 export class SpaceFooterComponent implements OnInit {
   date = new Date();
   year;
-  Company = ["Our Missions","Careers","Newsroom"] 
-  qLink = ["Take a tour","Opportunities","Community"] 
-  gInfo = ["Blog","Forum","Businesses"] 
+ 
+  qLink = [{title: "Take a tour", url: "https://blog.lifthub.org/", },{title:"Opportunities", url:"https://blog.lifthub.org/opportunities/"},{title:"Community", url:"https://blog.lifthub.org/"}] 
+  //gInfo = ["Blog","Forum","Businesses"] 
+  Company = [
+    {
+      title:'Our Missions',
+      url:'space/mission'
+    },
+    {
+      title:'Careers',
+      url:'https://blog.lifthub.org/opportunities/'
+    },
+    {
+      title:'Newsroom',
+      url:'https://blog.lifthub.org/news/'
+    },
+  ]
+  gInfo = [
+    {
+      title:'Blog',
+      url:'https://blog.lifthub.org'
+    },
+    {
+      title:'Forum',
+      url:'https://blog.lifthub.org/opportunities/'
+    },
+    {
+      title:'Busineses',
+      url:'https://blog.lifthub.org'
+    },
+  ]
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

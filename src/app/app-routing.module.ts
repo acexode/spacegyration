@@ -1,3 +1,4 @@
+import { MissionComponent } from './mission/mission.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 import { SuperAdminGuard } from './super-admin.guard';
@@ -175,6 +176,14 @@ export const routes: Routes = [
       {
          path: 'booking',
          component: BookingComponent
+       },    
+      {
+         path: 'view-space',
+         component: BookingComponent
+       },    
+      {
+         path: 'mission',
+         component: MissionComponent
        },    
        {
          path: 'funplaces',

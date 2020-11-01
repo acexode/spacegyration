@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SampleData } from './../../sample';
 import { Component, OnInit } from '@angular/core';
 import { DispatcherService } from 'src/app/dispatcher.service';
@@ -15,7 +16,7 @@ export class BookedSpacesComponent implements OnInit {
   user
   booked = false;
   isloaded: boolean = false;
-  constructor(private dispatcher: DispatcherService, private flashMessage: FlashMessagesService) { }
+  constructor(private dispatcher: DispatcherService, private flashMessage: FlashMessagesService,private router: Router) { }
 
   ngOnInit(): void {
     this.isloaded = true
@@ -36,6 +37,10 @@ export class BookedSpacesComponent implements OnInit {
     var b = moment(end);
     return b.diff(a)
 
+  }
+  gotoBook(index) {
+    console.log(index);   
+    this.router.navigate(['space/booking', { data: index }]);
   }
 
 }

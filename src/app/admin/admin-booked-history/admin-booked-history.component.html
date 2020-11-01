@@ -20,7 +20,40 @@
                 <span class="sr-only">Loading...</span>
               </div>
            </div>
-            <div *ngIf="!isloaded" class="col-md-11 px-5">
+            <div  *ngFor="let space of spaces" class="row card card-list " class="col-md-4 px-5 d-block d-md-none">
+                <!-- Card -->
+<div *ngIf="!isloaded" class="card promoting-card">
+
+    <!-- Card content -->
+    
+  
+    <!-- Card image -->
+    <div class="view overlay">
+      <img class="card-img-top rounded-0" src={{space.details.img[0]}} alt="Card image cap">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+  
+    <!-- Card content -->
+    <div class="card-body">
+      <div class="collapse-content">  
+         <!-- Title -->
+         <h4 class="card-title font-weight-bold mb-2">{{space.details.title}}</h4>
+         <!-- Subtitle --> 
+        <p class="card-text mb-0" id="collapseContent"><i class="fa fa-clock-o"></i>
+            &nbsp; {{calcDuration(space.bookings[0].bookingStart,space.bookings[0].bookingEnd)}}</p>
+        <p class="card-text " id="collapseContent">₦ &nbsp; {{space.details.price}}</p>
+        <!-- Button -->
+        <a (click)="gotoBook(space._id)" class="btn btn-flat btn-warning text-light px-3 mx-0 mb-0">View</a>
+      </div>
+  
+    </div>
+  
+  </div>
+  <!-- Card -->
+            </div>
+            <div *ngIf="!isloaded" class="col-md-11 px-5 d-none d-md-block d-lg-block d-xl-block">
 
                 <div *ngFor="let space of spaces" class="row card card-list ">
                     <div class=" card-list-left ">
@@ -30,7 +63,7 @@
 
                                 </div>
                                 <div class="col-5 pt-3 px-0">
-                                    <p class=" pl-1 p-detail ">{{space.details.title}}</p>
+                                    <p class=" pl-3 p-detail ">{{space.details.title}}</p>
 
                                 </div>
                                 <div class="col-2 text-center pt-3 px-0 ">
