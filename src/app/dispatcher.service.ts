@@ -10,7 +10,7 @@ declare var $: any;
 export class DispatcherService {
   httpOptions
   base_url = 'https://nameless-basin-68483.herokuapp.com'
-  client_url = 'http://localhost:4200'
+  client_url = 'https://spacegyration.herokuapp.com'
   public helper = new JwtHelperService();
   constructor(private http: HttpClient) {
     this.httpOptions = {
