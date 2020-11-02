@@ -1,5 +1,5 @@
 import { Component, OnInit,HostListener } from '@angular/core';
-import { FormControl, FormGroup,FormArray, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup,FormArray, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
 import { DispatcherService } from 'src/app/dispatcher.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
@@ -18,6 +18,7 @@ export class AddSpaceComponent implements OnInit {
   eventSpace
   funSpace
   submitted = false; 
+  isloading = false
   disabledSubmitButton: boolean = true
   amenities: Array<any> = [
     { name: 'TV', value: 'tv' },
@@ -204,7 +205,11 @@ onRemove(event) {
     this.files.splice(this.files.indexOf(event), 1);
 }
   submitForm(){    
-    console.log(this.files)
+    console.log(this.spaceForm)
+    this.getFormValidationErrors()
+    return
+
+    this.isloading = true;
     const formData = new FormData();   
     for (var i = 0; i < this.files.length; i++) {
         formData.append("uploads", this.files[i], this.files[i].name);
@@ -221,23 +226,46 @@ onRemove(event) {
         // delete spaceData.checkArray
         spaceData.images = res.images
           console.log(spaceData);
-        this.dispatcher.addSpace(spaceData).subscribe(res =>{
-          this.successMsg()
-          console.log(res)
-          this.spaceForm.reset()
+        this.dispatcher.addSpace(spaceData).subscribe((res:any) =>{
+          if(res.success){
+            this.isloading = false
+            this.successMsg();
+            this.files = []
+            console.log(res)
+            this.spaceForm.reset()
+          }else{
+            let error = {error: res.message}
+            this.errMsg(error)
+          }
         }, error =>{
-          this.errMsg(error)
+          this.errMsg('')
           console.log(res)
         })
     })   
 
 }
+getFormValidationErrors() {
+  Object.keys(this.spaceForm.controls).forEach(key => {
+
+  const controlErrors: ValidationErrors = this.spaceForm.get(key).errors;
+  if (controlErrors != null) {
+       let errors = ''
+        Object.keys(controlErrors).forEach(keyError => {
+          errors.concat(key)
+          console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+        });
+      }
+    });
+  }
 successMsg():void {
   this.flashMessage.show(`New space successfully added.`, { cssClass: 'alert-success', timeout: 20000 });
 }
 errMsg(error):void {
 
   this.flashMessage.show(`Error creating space ${error.error}`, { cssClass: 'alert-danger', timeout: 20000 });
+}
+validationError(field):void {
+  this.flashMessage.show(`${field} is required`, { cssClass: 'alert-danger', timeout: 2000 });
 }
 
 }

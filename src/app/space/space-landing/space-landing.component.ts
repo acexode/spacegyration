@@ -44,7 +44,11 @@ export class SpaceLandingComponent implements OnInit {
    }
 
    ngOnInit() {    
-   
+    this.dispatcher.getBanner().subscribe((data:any) => {
+      console.log(data)
+      //  this.banner = data.banners
+      
+    })
     if (navigator.geolocation) {
       console.log(true);
       navigator.geolocation.watchPosition(position =>{

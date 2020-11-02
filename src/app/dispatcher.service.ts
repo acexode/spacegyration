@@ -154,6 +154,12 @@ export class DispatcherService {
       return false;
     }
   }
+  // check if user is logged in
+  userRole() {
+    const token = localStorage.getItem('token');
+    let user = this.helper.decodeToken(token);
+    return user.role
+  }
 
   // Function to receive booking data (WAT) and convert to JS Date object
  dateUTC = (dateString) => {
