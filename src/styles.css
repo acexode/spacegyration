@@ -33,11 +33,12 @@ a:hover{
     background: #000;
     color: #fff;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-    font-weight: 300;	
+	font-weight: 300;
+	height: 70px;	
 }
 .navbar-brand{
 	height: auto;
-	padding: 10px 20px;
+	padding: 0px 20px;
 	outline: none;
 }
 .navbar-brand img{
@@ -4019,8 +4020,8 @@ table thead th{
 	}
 }
 .logo{
-    width: 50px !important;
-    /* height: 26px !important; */
+    width: 100px !important;
+    height: 100px !important;
 }
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {

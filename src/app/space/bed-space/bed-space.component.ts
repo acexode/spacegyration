@@ -4,6 +4,7 @@ import { Component, OnInit, NgModule, ViewEncapsulation, ElementRef, ViewChild, 
 import { DispatcherService } from 'src/app/dispatcher.service';
 import { Router } from '@angular/router';
 import { Options, LabelType } from 'ng5-slider';
+import { defaults } from 'flatpickr/dist/types/options';
 export const SampleData  = [{
   spaceType: 'Bed Space',
   details : {
@@ -215,7 +216,8 @@ export class BedSpaceComponent implements OnInit {
   public pagesArray: Array<number> = [];
   public currentPage: number = 1;
   itemsPerPage: 6
-  spaces = SampleData;
+  spaces = [];
+  default = [];
     config: any = {
       itemsPerPage: 5,
       currentPage: 1,
@@ -243,6 +245,7 @@ export class BedSpaceComponent implements OnInit {
     this.dispatcher.spaceType(space).subscribe((res: any) => {
       console.log(res);
       this.spaces = res.space;
+      this.default = res.space;
       const pagesAmount = Math.ceil(
         this.spaces.length / 6
       );
@@ -283,9 +286,9 @@ export class BedSpaceComponent implements OnInit {
       
       // this.searchText = amenities
     }else{
-      if(this.spaces.length != SampleData.length){
+      if(this.spaces.length != this.default.length){
         this.searchText = ''
-        this.spaces = SampleData
+        this.spaces = this.default
       }
       console.log('location false')
     }

@@ -197,7 +197,11 @@
                   </ul>
                 </div>
               </div>
-              <ul class="row">
+              <ul *ngIf="spaces?.length == 0" class="row justify-content-center my-5">
+                  <h4 class="text-center my-5">No Space Available</h4>
+
+              </ul>
+              <ul *ngIf="spaces?.length > 0" class="row">
                 <div *ngFor="let space of spaces | filter:searchText | paginate: { itemsPerPage: 6, currentPage: p };let i =index" class="col-lg-4 col-md-6 mb-3">
                     <div class="room-grid-item">
                       <figure class="gradient-overlay-hover link-icon">
