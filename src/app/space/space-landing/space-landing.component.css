@@ -3,3 +3,23 @@
     border: none;
     outline: none;
 }
+.carousel-item .testimonial {
+    margin-right: 23%;
+    margin-left: 23%;
+}
+.carousel-indicators {
+    bottom: -2em !important;
+    
+   
+}
+.carousel-indicators li {    
+    background-color:#ffc107 !important;
+   
+}
+
+.testimonial .avatar img {
+    max-width: 170px;
+   
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+}
