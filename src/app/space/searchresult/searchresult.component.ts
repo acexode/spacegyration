@@ -18,7 +18,8 @@ export class SearchresultComponent implements OnInit {
   public pagesArray: Array<number> = [];
   public currentPage: number = 1;
   itemsPerPage: 6
-  spaces = SampleData;
+  spaces = [];
+  defualtSpaces = []
     config: any = {
       itemsPerPage: 5,
       currentPage: 1,
@@ -39,6 +40,7 @@ export class SearchresultComponent implements OnInit {
         this.dispatcher.search(space, location).subscribe((res: any) => {    
           console.log(res)     
           this.spaces = res.space;
+          this.defualtSpaces = res.space;
         }, error => {
           console.log('Error', error);
         });
@@ -84,9 +86,9 @@ export class SearchresultComponent implements OnInit {
       
       // this.searchText = amenities
     }else{
-      if(this.spaces.length != SampleData.length){
+      if(this.spaces.length != this.defualtSpaces.length){
         this.searchText = ''
-        this.spaces = SampleData
+        this.spaces = this.defualtSpaces
       }
       console.log('location false')
     }
