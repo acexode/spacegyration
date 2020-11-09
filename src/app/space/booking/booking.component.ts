@@ -2,7 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, ViewEncapsulation, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 import { DispatcherService } from 'src/app/dispatcher.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -328,7 +328,15 @@ export class BookingComponent implements OnInit {
      }
 
   }
-
+//   public loadScript() {
+//     console.log('preparing to load...')
+//     let node = document.createElement('script');
+//     node.src = url;
+//     node.type = 'text/javascript';
+//     node.async = true;
+//     node.charset = 'utf-8';
+//     document.getElementsByTagName('head')[0].appendChild(node);
+// }
 
 }
 

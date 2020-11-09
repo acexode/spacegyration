@@ -16,8 +16,7 @@ $(function(){
       })
   }
   $("#vertical-menu-btn").on("click", function (e) {
-    e.preventDefault()
-   
+    e.preventDefault()    
       // $(".main-sidebar").removeClass("sidebar-enable")
       $(".main-sidebar").toggleClass("vertical-collpsed") 
       $(".navbar-brand-box").toggleClass('active')
