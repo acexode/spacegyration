@@ -206,9 +206,7 @@ onRemove(event) {
 }
   submitForm(){    
     console.log(this.spaceForm)
-    this.getFormValidationErrors()
-    return
-
+    this.getFormValidationErrors();
     this.isloading = true;
     const formData = new FormData();   
     for (var i = 0; i < this.files.length; i++) {
