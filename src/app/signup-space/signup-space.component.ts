@@ -13,6 +13,7 @@ export class SignupSpaceComponent implements OnInit {
   adminForm : FormGroup
   data: any;
   @ViewChild('signupSuccess', {static : true}) signupSuccess:ElementRef;
+  @ViewChild('dismissModal', {static : true}) dismissModal:ElementRef;
   constructor(private formBuilder: FormBuilder,private dispatcher: DispatcherService,private flashMessage: FlashMessagesService, private router: Router) { 
     this.adminForm = this.formBuilder.group({
       company: ['', Validators.required],
@@ -31,7 +32,8 @@ export class SignupSpaceComponent implements OnInit {
   ngOnInit(): void {
   }
   submitForm(){    
-    
+    this.signupSuccess.nativeElement.click()
+    return
     this.dispatcher.registerAdmin(this.adminForm.value).subscribe((e =>{
       this.dispatcher.login(this.adminForm.value).subscribe(token =>{
         this.data = token['token']
@@ -41,9 +43,8 @@ export class SignupSpaceComponent implements OnInit {
     }))
   }
   navigate(){
-    let element: HTMLElement = document.getElementsByTagName("BODY")[0] as HTMLElement;
-    element.click()
-    window.location.href = 'admin'
+    this.dismissModal.nativeElement.click()
+    this.router.navigate(['admin'])
   }
 
 }
