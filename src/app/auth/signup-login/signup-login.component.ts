@@ -8,8 +8,8 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./signup-login.component.css']
 })
 export class SignupLoginComponent implements OnInit {
-  signupUser = {email: '', username:'', password: ''};
-  loginUser = {username:'', password: ''};
+  signupUser = {email: '', firstname:'',lastname:'', password: ''};
+  loginUser = {email:'', password: ''};
   errMsg;
   successMsg;
   data:any;
@@ -22,11 +22,12 @@ export class SignupLoginComponent implements OnInit {
   ngOnInit(): void {
     this.SignupForm = new FormGroup({
       signupEmail: new FormControl('', [Validators.email, Validators.required]),
-      signupUsername: new FormControl('', Validators.required),
+      signupFirstname: new FormControl('', Validators.required),
+      signupLastname: new FormControl('', Validators.required),
       signupPassword: new FormControl('', Validators.required)
     });
     this.LoginForm = new FormGroup({      
-      loginUsername: new FormControl('', Validators.required),
+      loginEmail: new FormControl('', [Validators.required, Validators.email]),
       loginUserPassword: new FormControl('', Validators.required)
     });
   }
@@ -41,15 +42,18 @@ export class SignupLoginComponent implements OnInit {
   get signupEmail() {
     return this.SignupForm.get('signupEmail');
   }
-  get signupUsername() {
-    return this.SignupForm.get('signupUsername');
+  get signupFirstname() {
+    return this.SignupForm.get('signupFirstname');
+  }
+  get signupLastname() {
+    return this.SignupForm.get('signupLastname');
   }
 
   get signupPassword() {
     return this.SignupForm.get('signupPassword');
   }
-  get loginUsername(){
-    return this.LoginForm.get('loginUsername')
+  get loginEmail(){
+    return this.LoginForm.get('loginEmail')
   }
   get loginUserPassword(){
     return this.LoginForm.get('loginUserPassword')
@@ -57,7 +61,8 @@ export class SignupLoginComponent implements OnInit {
   signup(){
    
     this.signupUser.email =  this.signupEmail.value;
-    this.signupUser.username =  this.signupUsername.value;
+    this.signupUser.firstname =  this.signupFirstname.value;
+    this.signupUser.lastname =  this.signupLastname.value;
     this.signupUser.password =  this.signupPassword.value;
     console.log(this.signupUser)
     this.dispatch.signup(this.signupUser).subscribe(res =>{
@@ -77,9 +82,9 @@ export class SignupLoginComponent implements OnInit {
   }
   login(){
     
-    this.loginUser.username =  this.loginUsername.value;
+    this.loginUser.email =  this.loginEmail.value;
     this.loginUser.password =  this.loginUserPassword.value;
-    console.log(this.signupUsername.value)
+    console.log(this.signupEmail.value)
     console.log(this.signupPassword.value)
     console.log(this.loginUser)
     this.dispatch.login(this.loginUser).subscribe(res => {

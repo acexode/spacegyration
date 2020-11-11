@@ -46,6 +46,7 @@ import { BannerSettingsComponent } from './admin/banner-settings/banner-settings
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { MissionComponent } from './mission/mission.component';
+import { SignupSpaceComponent } from './signup-space/signup-space.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,7 @@ import { MissionComponent } from './mission/mission.component';
     AdminBookedHistoryComponent,
      AdminBookedSpacesComponent, 
      AdminAccountSettingsComponent, 
-     AdminChangePasswordComponent, SpaceTitleComponent, SpaceCardsComponent, SuperAdminComponent, BannerSettingsComponent, ForgotPasswordComponent, ResetPasswordComponent, MissionComponent,     
+     AdminChangePasswordComponent, SpaceTitleComponent, SpaceCardsComponent, SuperAdminComponent, BannerSettingsComponent, ForgotPasswordComponent, ResetPasswordComponent, MissionComponent, SignupSpaceComponent,     
   ],
   imports: [
     BrowserModule,

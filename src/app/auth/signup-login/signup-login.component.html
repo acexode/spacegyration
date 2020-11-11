@@ -16,22 +16,22 @@
             <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
               <form>
 
-                <div class="md-form mb-5">
-                  <input type="text" id="Form-username" placeholder="Username" class="form-control" mdbInput mdbValidate
-                         [formControl]="loginUsername">
+                <div class="md-form mb-3">
+                  <input type="text" id="Form-username" placeholder="Email" class="form-control"
+                         [formControl]="loginEmail">
                   <!-- <label for="Form-username">Your Username</label> -->
                   <mdb-error
-                    *ngIf="loginUsername.invalid && (loginUsername.dirty || loginUsername.touched)">
+                    *ngIf="loginEmail.invalid && (loginEmail.dirty || loginEmail.touched)">
                     Input invalid
                   </mdb-error>
                   <mdb-success
-                    *ngIf="loginUsername.valid && (loginUsername.dirty || loginUsername.touched)">Input
+                    *ngIf="loginEmail.valid && (loginEmail.dirty || loginEmail.touched)">Input
                     valid
                   </mdb-success>
                 </div>
         
-                <div class="md-form mb-5">
-                  <input type="password" id="Form-pass1" placeholder="Password" class="form-control" mdbInput mdbValidate
+                <div class="md-form mb-3">
+                  <input type="password" id="Form-pass1" placeholder="Password" class="form-control"
                          [formControl]="loginUserPassword">
                   <!-- <label for="Form-pass1">Your password</label> -->
                   <mdb-error
@@ -56,8 +56,8 @@
             </div>
             <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
               <form>
-                <div class="md-form mb-5">
-                    <input type="email" id="Form-email1" placeholder="Email" class="form-control" mdbInput mdbValidate
+                <div class="md-form mb-3">
+                    <input type="email" id="Form-email1" placeholder="Email" class="form-control"
                     [formControl]="signupEmail">
                     <!-- <label for="Form-email1">Your email</label> -->
                     <mdb-error
@@ -69,22 +69,35 @@
                     valid
                   </mdb-success>
                 </div>
-                <div class="md-form mb-5">
-                  <input type="text" id="Form-username" placeholder="Username" class="form-control" mdbInput mdbValidate
-                         [formControl]="signupUsername">
+                <div class="md-form mb-3">
+                  <input type="text" id="Form-username" placeholder="First name" class="form-control"
+                         [formControl]="signupFirstname">
                   <!-- <label for="Form-username">Your Username</label> -->
                   <mdb-error
-                    *ngIf="signupUsername.invalid && (signupUsername.dirty || signupUsername.touched)">
+                    *ngIf="signupFirstname.invalid && (signupFirstname.dirty || signupFirstname.touched)">
                     Input invalid
                   </mdb-error>
                   <mdb-success
-                    *ngIf="signupUsername.valid && (signupUsername.dirty || signupUsername.touched)">Input
+                    *ngIf="signupFirstname.valid && (signupFirstname.dirty || signupFirstname.touched)">Input
+                    valid
+                  </mdb-success>
+                </div>
+                <div class="md-form mb-3">
+                  <input type="text" id="Form-username" placeholder="Last name" class="form-control"
+                         [formControl]="signupLastname">
+                  <!-- <label for="Form-username">Your Username</label> -->
+                  <mdb-error
+                    *ngIf="signupLastname.invalid && (signupLastname.dirty || signupLastname.touched)">
+                    Input invalid
+                  </mdb-error>
+                  <mdb-success
+                    *ngIf="signupLastname.valid && (signupLastname.dirty || signupLastname.touched)">Input
                     valid
                   </mdb-success>
                 </div>
             
-                <div class="md-form mb-5">
-                  <input type="password" id="Form-pass1" placeholder="Password" class="form-control" mdbInput mdbValidate
+                <div class="md-form mb-3">
+                  <input type="password" id="Form-pass1" placeholder="Password" class="form-control"
                          [formControl]="signupPassword">
                   <!-- <label for="Form-pass1">Your password</label> -->
                   <mdb-error
@@ -98,7 +111,7 @@
                 </div>
             
                 <div class="text-center mt-2">
-                  <button (click)="signup()" type="submit" mdbBtn color="warning" [disabled]="disabledSubmitButton" block="true" rounded="true" class="z-depth-1a waves-light btn btn-warning btn-rounded btn-block"
+                  <button (click)="signup()" type="submit" mdbBtn color="warning" [disabled]="disabledSubmitButton" class=" mt-5 z-depth-1a waves-light btn btn-warning btn-rounded btn-block"
                           mdbWavesEffect>Sign Up
                   </button>
                 </div>

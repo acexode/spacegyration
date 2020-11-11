@@ -1,0 +1,245 @@
+<div class="wrapper mb-5">  
+  <div>
+    <section class="top-container search-panel header-banner"
+      style="background: linear-gradient(0deg, rgba(214, 158, 46, 0.3), rgba(214, 158, 46, 0.3)), url(assets/img/event-space-venue-rental-resized.jpg);">
+      <div class="container">
+        <h1 class="main-tagline text-center">Rent your space. Make more money.</h1>
+        <div class="subtitle text-center">
+          <div class="row justify-content-center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <p>Whether you’re a restaurant, rooftop bar, art gallery or a co-working space with plenty of meeting
+                rooms to spare, Space gyration is the platform for you to promote your venue at.</p>
+              <p>With over 100,000 unique visitors looking for suitable event spaces to rent on the platform every month,
+                you can be sure that listing your space with us will not only promote your brand beautifully, but also
+                maximize your revenue.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sub-section-container">
+      <div class="container">
+        <div class="venue-signup-left">
+          <h2 class="text-center">How it works</h2> <br>
+          <ul class="row">
+            <li class="col-sm-4"><img class="mb-2" src="assets/img/account.png"
+                style="height: 40px; margin-top: 3px; margin-bottom: -8px;">
+              <h4>Create an account</h4><br>Add details about your spaces with capturing images!
+            </li>
+            <li class="col-sm-4"><img class="mb-2" src="assets/img/showcase.png"
+                style="height: 40px; margin-top: 3px; margin-bottom: -8px;">
+              <h4>Showcase your space</h4><br>Get viewed by over 30,000 unique visitors per month looking for suitable
+              spaces to rent for their event.
+            </li>
+            <li class="col-sm-4"><img class="mb-2" src="assets/img/enquiries.png"
+                style="height: 40px; margin-top: 3px; margin-bottom: -8px;">
+              <h4>Receive enquiries</h4><br>Receive email enquiries or direct phone calls from event planners who are
+              interested to rent your space
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="content-container venue-signup-container mb-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div>
+            <!---->
+            <form [formGroup]="adminForm" (ngSubmit)="submitForm()" class="venue-signup-panel">
+              <div class="row justify-content-center">
+                <div class="col-sm-12">
+                  <div class="form-group"><label class="control-label"><span>Company Name</span>
+                      <!----></label>
+                    <div>
+                      <div class=""><input id="company" formControlName="company" type="text"
+                          placeholder="Eg. Space gyration" class="form-control"
+                          style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;); cursor: auto;">
+                          <span
+                          *ngIf="adminForm.get('company').dirty || adminForm.get('company').touched "
+                        >
+                          <small class="error" *ngIf="adminForm.get('company').hasError('required')"
+                            >company is required.</small
+                          >
+                          
+                        </span>
+                      </div>
+                      <!---->
+                      <!---->
+                      <!----> <span class="help-block"
+                        style="margin-top: -10px; display: none;"><strong></strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group"><label class="control-label"><span>First Name</span>
+                      <!----></label>
+                    <div>
+                      <div class=""><input id="first_name" formControlName="firstname" type="text" placeholder="First name"
+                          class="form-control"
+                          style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;); cursor: auto;">
+                        <!---->
+                        <span
+                          *ngIf="adminForm.get('firstname').dirty || adminForm.get('firstname').touched "
+                        >
+                          <small class="error" *ngIf="adminForm.get('firstname').hasError('required')"
+                            >firstname is required.</small
+                          >
+                          
+                        </span>
+                      </div>
+                      <!---->
+                      <!---->
+                      <!----> <span class="help-block"
+                        style="margin-top: -10px; display: none;"><strong></strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group"><label class="control-label"><span>Last Name</span>
+                      <!----></label>
+                    <div>
+                      <div class=""><input id="last_name" formControlName="lastname" type="text" placeholder="Last name"
+                          class="form-control">
+                          <span
+                          *ngIf="adminForm.get('lastname').dirty || adminForm.get('lastname').touched "
+                        >
+                          <small class="error" *ngIf="adminForm.get('lastname').hasError('required')"
+                            >lastname is required.</small
+                          >
+                          
+                        </span>
+                        <!---->
+                      </div>
+                      <!---->
+                      <!---->
+                      <!----> <span class="help-block"
+                        style="margin-top: -10px; display: none;"><strong></strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group"><label class="control-label"><span>Email Address</span>
+                      <!----></label>
+                    <div>
+                      <div class=""><input id="email" formControlName="email" type="text" placeholder="E.g. name@company.com"
+                          class="form-control">
+                          <span
+                          *ngIf="adminForm.get('email').dirty || adminForm.get('email').touched "
+                        >
+                          <small class="error" *ngIf="adminForm.get('email').hasError('required')"
+                            >email is required.</small
+                          >
+                          
+                        </span>
+                        <!---->
+                      </div>
+                      <!---->
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 contact-num">
+                  <div class="form-group"><label class="control-label"><span>Contact Number</span>
+                      <!----></label>
+                    <div>
+                      <div class=""><input id="phone" formControlName="phone" type="text" placeholder=" 7066 565 289"
+                          class="form-control"> <span class="form-text text-muted"
+                          style="position: relative; top: -15px;"><i><small>
+                              
+                            </small></i></span>
+                        <!---->
+                        <span
+                          *ngIf="adminForm.get('phone').dirty || adminForm.get('phone').touched "
+                        >
+                          <small class="error" *ngIf="adminForm.get('phone').hasError('required')"
+                            >phone is required.</small
+                          >
+                          
+                        </span>
+                      </div>
+                      <!---->
+                      <!---->
+                      <!----> <span class="help-block"
+                        style="margin-top: -10px; display: none;"><strong></strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group"><label class="control-label"><span>Choose a Password</span>
+                      <!----></label>
+                    <div>
+                      <!---->
+                      <div class=""><input id="password" formControlName="password" type="password" placeholder="**********"
+                          class="form-control"
+                          style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;); cursor: auto;">
+                        <!---->
+                        <span
+                          *ngIf="adminForm.get('password').dirty || adminForm.get('password').touched "
+                        >
+                          <small class="error" *ngIf="adminForm.get('password').hasError('required')"
+                            >password is required.</small
+                          >
+                          
+                        </span>
+                      </div>
+                      <!---->
+                      <!----> <span class="help-block"
+                        style="margin-top: -10px; display: none;"><strong></strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group"><label class="control-label"><span>Retype Password</span>
+                      <!----></label>
+                    <div>
+                      <!---->
+                      <div class=""><input id="confirm" formControlName="confirmPassword" type="password"
+                          placeholder="**********" class="form-control"
+                          style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;); cursor: auto;">
+                        <!---->
+                        <span
+                          *ngIf="adminForm.get('confirmPassword').dirty || adminForm.get('confirmPassword').touched "
+                        >
+                          <small class="error" *ngIf="adminForm.get('confirmPassword').hasError('required')"
+                            >Confirm Password is required.</small
+                          >
+                          
+                        </span>
+                      </div>
+                      <!---->
+                      <!----> <span class="help-block"
+                        style="margin-top: -10px; display: none;"><strong></strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="terms-conditions-checkbox">
+                    <div class="row">
+                      <div class="col-sm-12"><label class="control-label"><input type="checkbox" formControlName="accept" class="checkbox-field">
+                          By signing up, I agree to the <a href="/tnc" class="">terms and conditions</a> and <a
+                            href="/privacy" class="">privacy policy.</a>
+                          <!----></label>
+                          <span
+                          *ngIf="adminForm.get('accept').dirty || adminForm.get('accept').touched "
+                        >
+                          <small class="error" *ngIf="adminForm.get('accept').hasError('required')"
+                            >Please accept the terms and condition.</small
+                          >
+                          
+                        </span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="text-center"><button [disabled]="!adminForm.valid" class="trigger-btn">List your space</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+  </div>
+ 
+</div>

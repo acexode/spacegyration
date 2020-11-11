@@ -29,6 +29,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BookingComponent } from './space/booking/booking.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { SignupSpaceComponent } from './signup-space/signup-space.component';
 
 export const routes: Routes = [
   {
@@ -173,6 +174,10 @@ export const routes: Routes = [
         component: SpaceLandingComponent,
         pathMatch: 'full'
       },
+      {
+         path: 'host/venue',
+         component: SignupSpaceComponent
+       },    
       {
          path: 'booking',
          component: BookingComponent

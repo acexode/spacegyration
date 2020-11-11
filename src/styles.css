@@ -1446,7 +1446,7 @@ a:hover{
 	width: auto;
     display: inline-block;
     position: relative;
-    top: -3px;
+    top: 3px;
     margin-right: 3px;
     position: absolute;
     left: 0;
@@ -3291,9 +3291,9 @@ table thead th{
 	position: relative;
 }
 .contact-num:before{
-	content: '+65';
+	content: '+234 ';
 	position: absolute;
-    top: 40px;
+    top: 41.5px;
     margin-left: 15px;
     font-size: 14px;
 }
