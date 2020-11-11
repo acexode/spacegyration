@@ -30,6 +30,9 @@ export class DispatcherService {
   signup(user) {
     return this.http.post(`${this.base_url}/api/signup`, user);
   }
+  registerAdmin(user) {
+    return this.http.post(`${this.base_url}/api/registerAdmin`, user);
+  }
 
   // login user
   login(user) {
